@@ -2,9 +2,9 @@ This project is the implementation of the [99 Scala problems](http://aperiodic.n
 
 Each Specification is divided into:
 
- - the description of the problem to solve (in `ListsSpec` for example)
- - the examples which should pass once the problem is solved (in `ListsProblems`)
- - the methods to implement (in `ListsSolutions`)
+ - the description of the problem to solve (see [`ListsSpec`](https://github.com/etorreborre/s99/blob/master/src/test/scala/s99/ListsSpec.scala) for an example)
+ - the examples which should pass once the problem is solved (see [`ListsProblems`](https://github.com/etorreborre/s99/blob/master/src/test/scala/s99/ListsProblems.scala) for an example)
+ - the methods to implement (see [`ListsSolutions`](https://github.com/etorreborre/s99/blob/master/src/main/scala/s99/ListsSolutions.scala) for an example)
 
 To run the specifications, install sbt (version > 0.11.2) and execute:
 

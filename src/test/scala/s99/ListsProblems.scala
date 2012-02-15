@@ -3,7 +3,7 @@ package s99
 import org.specs2._
 import matcher._
 
-trait ListProblems extends Specification with ThrownExpectations with Solutions {
+trait ListsProblems extends Specification with ThrownExpectations with ListsSolutions {
 
   def P01 = last(List(1, 1, 2, 3, 5, 8)) === 8
   def P02 = penultimate(List(1, 1, 2, 3, 5, 8)) === 5

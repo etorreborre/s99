@@ -1,7 +1,7 @@
 package s99
 import org.specs2._
 
-class ListsSpec extends Specification with ListProblems with Solutions { def is =
+class ListsSpec extends Specification with ListsProblems { def is =
 
   "Find the last element of a list"                                                                                     ! P01^
   "Find the last but one element of a list"                                                                             ! P02^

@@ -1,9 +1,8 @@
 package s99
 
-import org.specs2.Specification
 import org.specs2.matcher.ThrownExpectations
 
-trait Solutions {
+trait ListsSolutions {
   import Solutions._
 
   def last[T](list: List[T]): T = ???
