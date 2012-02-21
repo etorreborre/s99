@@ -14,3 +14,5 @@ To see only the failed ones:
 
 sbt>test-only -- xonly
 
+*WARNING* The specifications have not been tested against a valid implementation, please report any bug!
+
