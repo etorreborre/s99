@@ -20,8 +20,8 @@ trait BinaryTreesProblems extends Specification with ThrownExpectations with Bin
   def P58 = Tree.symmetricBalancedTrees(5, "x").toString ===
             "List(T(x T(x . T(x . .)) T(x T(x . .) .)), T(x T(x T(x . .) .) T(x . T(x . .))))"
 
-  def P59 = Tree.hbalTrees(3, "x").map(_.toString) must contain
-            ("T(x T(x T(x . .) T(x . .)) T(x T(x . .) T(x . .)))", "T(x T(x T(x . .) T(x . .)) T(x T(x . .) .))")
+  def P59 = Tree.hbalTrees(3, "x").map(_.toString) must contain("T(x T(x T(x . .) T(x . .)) T(x T(x . .) T(x . .)))",
+                                                                "T(x T(x T(x . .) T(x . .)) T(x T(x . .) .))")
 
   def P60 = {
     Tree.minHbalNodes(3) === 4
@@ -31,7 +31,7 @@ trait BinaryTreesProblems extends Specification with ThrownExpectations with Bin
 
   def P61 = Node('x', Node('x'), End).leafCount === 1
 
-  def P61A = Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafList = List('b', 'd', 'e')
+  def P61A = Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafList === List('b', 'd', 'e')
 
   def P62 = Node('a', Node('b'), Node('c', Node('d'), Node('e'))).internalList === List('a', 'c')
 
@@ -55,6 +55,19 @@ trait BinaryTreesProblems extends Specification with ThrownExpectations with Bin
     Tree.fromString("a(b(d,e),c(,f(g,)))").show === "a(b(d,e),c(,f(g,)))"
   }
 
-  def P68 = pending
+  def P68 = {
+    Tree.string2Tree("a(b(d,e),c(,f(g,)))").preOrder === List('a', 'b', 'd', 'e', 'c', 'f', 'g')
+
+    Tree.string2Tree("a(b(d,e),c(,f(g,)))").inOrder === List('d', 'b', 'e', 'a', 'c', 'g', 'f')
+
+    Tree.preInTree(List('a', 'b', 'd', 'e', 'c', 'f', 'g'), List('d', 'b', 'e', 'a', 'c', 'g', 'f')).show ===
+     "a(b(d,e),c(,f(g,)))"
+  }
+
+  def P69 = {
+    Tree.string2Tree("a(b(d,e),c(,f(g,)))").toDotString === "abd..e..c.fg..."
+
+    Tree.fromDotString("abd..e..c.fg...").show === "a(b(d,e),c(,f(g,)))"
+  }
 }
 

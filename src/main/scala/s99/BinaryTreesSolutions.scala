@@ -4,8 +4,11 @@ import Solutions.???
 trait BinaryTreesSolutions {
 
   sealed abstract class Tree[+T] {
-    def addValue(s: String): Tree[String] = ???
+    def addValue[S >: T](s: S): Tree[S] = ???
     def isSymmetric: Boolean = ???
+    def preOrder: List[T] = ???
+    def inOrder: List[T] = ???
+    def toDotString: String = ???
   }
 
   case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {
@@ -32,8 +35,8 @@ trait BinaryTreesSolutions {
 
   object Tree {
 
-    def cBalanced(n: Int,  s: String) = ???
-    def fromList(list: List[String]): Tree[String] = ???
+    def cBalanced(n: Int,  s: String): List[Node[String]] = ???
+    def fromList(list: List[Int]): Tree[Int] = ???
     def symmetricBalancedTrees(n: Int,  s: String): List[Node[String]] = ???
     def hbalTrees(n: Int,  s: String): List[Node[String]] = ???
 
@@ -43,11 +46,16 @@ trait BinaryTreesSolutions {
     def completeBinaryTree(n: Int,  s: String): List[Node[String]] = ???
 
     def fromString(string: String): Node[Char] = ???
+    def fromDotString(string: String): Node[Char] = ???
+
+    def string2Tree(string: String): Tree[Char] = ???
+
+    def preInTree(lists: List[Char]*): Node[Char] = ???
   }
 
-  case class PositionedNode[+T](override val value: T,
-                                override val left: Tree[T],
-                                override val right: Tree[T], x: Int, y: Int) extends Node[T](value, left, right) {
+  class PositionedNode[+T](override val value: T,
+                           override val left: Tree[T],
+                           override val right: Tree[T], x: Int, y: Int) extends Node[T](value, left, right) {
     override def toString = "T[" + x.toString + "," + y.toString + "](" +
       value.toString + " " + left.toString + " " + right.toString + ")"
   }

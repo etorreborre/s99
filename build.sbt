@@ -18,6 +18,8 @@ libraryDependencies ++= Seq(
   "org.pegdown" % "pegdown" % "1.0.2"
 )
 
+scalacOptions ++= Seq("-deprecation", "-unchecked")
+
 /** Console */
 initialCommands in console := "import org.specs2._"
 
