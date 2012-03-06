@@ -45,7 +45,7 @@ trait LogicAndCodesProblems extends Specification with DataTables with ThrownExp
      T  ! T   ! T            |
      T  ! F   ! F            |
      F  ! T   ! T            |
-     F  ! F   ! F            | { impl(_, _) === _ }
+     F  ! F   ! T            | { impl(_, _) === _ }
 
     "a" | "b" | "equ(a, b)" |>
      T  ! T   ! T           |
