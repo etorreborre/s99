@@ -8,7 +8,7 @@ trait MultiwayTreesProblems  extends Specification with ThrownExpectations with 
 
   def P70C = MTree('a', List(MTree('f'))).nodeCount === 2
 
-  def P70 = MTree('a', List(MTree('f', List(MTree('g'))), MTree('c'), MTree('b', List(MTree('d'), MTree('e'))))).toString ===
+  def P70 = MTree('a', List(MTree('f', List(MTree('g'))), MTree('c'), MTree('b', List(MTree('d'), MTree('e'))))).show ===
             "afg^^c^bd^e^^^"
 
   def P71 = "afg^^c^bd^e^^^".internalPathLength === 9

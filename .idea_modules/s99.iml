@@ -23,18 +23,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="org.scala-lang_scala-library_2.9.1" level="project" />
-    <orderEntry type="library" name="org.scala-tools.testing_scalacheck_2.9.1_1.9" level="project" />
-    <orderEntry type="library" name="org.scala-tools.testing_test-interface_0.5" level="project" />
-    <orderEntry type="library" name="org.specs2_specs2-scalaz-core_2.9.1_6.0.1" level="project" />
-    <orderEntry type="library" name="org.specs2_specs2_2.9.1_1.9-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="org.pegdown_pegdown_1.0.2" level="project" />
-    <orderEntry type="library" name="org.parboiled_parboiled-core_1.0.1" level="project" />
-    <orderEntry type="library" name="org.parboiled_parboiled-java_1.0.1" level="project" />
-    <orderEntry type="library" name="asm_asm-tree_3.3.1" level="project" />
-    <orderEntry type="library" name="asm_asm_3.3.1" level="project" />
-    <orderEntry type="library" name="asm_asm-util_3.3.1" level="project" />
-    <orderEntry type="library" name="asm_asm-analysis_3.3.1" level="project" />
+    <orderEntry type="library" name="specs2" level="application" />
+    <orderEntry type="library" name="scala-2.9.1" level="application" />
   </component>
 </module>
 

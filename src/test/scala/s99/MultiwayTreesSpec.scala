@@ -36,7 +36,7 @@ class MultiwayTreesSpec extends MultiwayTreesProblems { def is =
          afg^^c^bd^e^^^
 
    Define the syntax of the string and write a function string2MTree to construct an MTree from a String. Make the
-   function an implicit conversion from String. Write the reverse function, and make it the `show` method of MTree""" ! P70^
+   function an implicit conversion from String. Write the reverse function, and make it the `show` method of MTree"""   ! P70^
   """
    *Determine the internal path length of a tree*
 
