@@ -4,7 +4,7 @@ class ListsSpec extends ListsProblems { def is =
 
   "Find the last element of a list"                                                                                     ! P01^
   "Find the last but one element of a list"                                                                             ! P02^
-  "Find the Kth element of a list. By convention, the first element in the list is element 0"                           ! P03^
+  "Find the nth element of a list. By convention, the first element in the list is element 0"                           ! P03^
   "Find the number of elements of a list"                                                                               ! P04^
   "Reverse a list"                                                                                                      ! P05^
   "Find out whether a list is a palindrome"                                                                             ! P06^
