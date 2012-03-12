@@ -1,5 +1,4 @@
 package s99
-import org.specs2._
 
 class ListsSpec extends ListsProblems { def is =
 

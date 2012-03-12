@@ -1,4 +1,5 @@
 package s99
+
 import Solutions.???
 
 trait BinaryTreesSolutions {

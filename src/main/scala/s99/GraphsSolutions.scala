@@ -1,7 +1,8 @@
 package s99
 
+import Solutions._
+
 trait GraphsSolutions {
-  import Solutions._
 
   object Graph {
     def fromString(s: String): Graph[String, String] = ???

@@ -1,9 +1,8 @@
 package s99
 
-import org.specs2.matcher.ThrownExpectations
+import Solutions._
 
 trait ListsSolutions {
-  import Solutions._
 
   def last[T](list: List[T]): T = ???
   def penultimate[T](list: List[T]): T = ???
@@ -38,6 +37,3 @@ trait ListsSolutions {
 
 }
 
-object Solutions extends ThrownExpectations {
-  lazy val ??? = skipped("todo")
-}
