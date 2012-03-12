@@ -4,12 +4,29 @@ import Solutions._
 
 trait ListsSolutions {
 
-  def last[T](list: List[T]): T = list.last
+  def last[T](list: List[T]): T = list match {
+    case Nil       => sys.error("empty list")
+    case a :: Nil  => a
+    case a :: rest => last(rest)
+  }
+  def penultimate[T](list: List[T]): T = list match {
+    case Nil            => sys.error("empty list")
+    case a :: Nil       => sys.error("list with one element only")
+    case a :: b :: Nil  => a
+    case a :: rest      => penultimate(rest)
+  }
+  def nth[T](n: Int, list: List[T]): T =
+    if (list.size == n + 1) last(list)
+    else nth(n, list.dropRight(1))
 
-  def penultimate[T](list: List[T]): T = list(list.size - 2)
-  def nth[T](n: Int, list: List[T]): T = list(n)
-  def length[T](list: List[T]): Int = list.size
-  def reverse[T](list: List[T]): T = ???
+  def length[T](list: List[T]): Int = if (list.size == 1) 1 else 1 + list.drop(1).size
+
+  def reverse[T](list: List[T]): List[T] = list match {
+    case Nil       => list
+    case a :: Nil  => list
+    case a :: rest => reverse(rest) :+ a
+  }
+
   def isPalindrome[T](list: List[T]): Boolean = ???
   def flatten[T](list: List[Any]): List[T] = ???
   def compress[T](list: List[T]): T = ???
