@@ -14,7 +14,7 @@ trait ListsSolutions {
   def compress[T](list: List[T]): List[T] = ???
   def pack[T](list: List[T]): List[List[T]] = ???
   def encode[T](list: List[T]): List[(Int, T)] = ???
-  def encodeModified[T](list: List[T]): List[(Int, T)] = ???
+  def encodeModified[T](list: List[T]): List[Any] = ???
   def decode[T](list: List[(Int, T)]): List[T] = ???
   def encodeDirect[T](list: List[T]): List[(Int, T)] = ???
   def duplicate[T](list: List[T]): List[T] = ???
