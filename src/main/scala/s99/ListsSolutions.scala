@@ -61,11 +61,34 @@ trait ListsSolutions {
   def encodeModified[T](list: List[T]): List[Any] =
     pack(list).map(l => if (l.size == 1) l.head else (l.size, l.head))
 
-  def decode[T](list: List[(Int, T)]): List[T] = ???
-  def encodeDirect[T](list: List[T]): List[(Int, T)] = ???
-  def duplicate[T](list: List[T]): List[T] = ???
-  def duplicateN[T](n: Int, list: List[T]): List[T] = ???
-  def drop[T](n: Int, list: List[T]): List[T] = ???
+  def decode[T](list: List[(Int, T)]): List[T] =
+    list.flatMap { case (n, t) => List.fill(n)(t) }
+
+  def encodeDirect[T](list: List[T]): List[(Int, T)] =
+    list match {
+      case Nil       => Nil
+      case a :: rest => (list.takeWhile(_ == a).size, a) :: encodeDirect(rest.dropWhile(_ == a))
+    }
+
+  def duplicate[T](list: List[T]): List[T] =
+    list match {
+      case Nil       => Nil
+      case a :: rest => a :: a :: duplicate(rest)
+    }
+
+  def duplicateN[T](n: Int, list: List[T]): List[T] =
+    list match {
+      case Nil       => Nil
+      case a :: rest => List.fill(n)(a) ::: duplicateN(n, rest)
+    }
+
+  def drop[T](n: Int, list: List[T]): List[T] = 
+    if (list.size <= n) list
+    else {
+      val (start, end) = (list.take(n - 1), list.drop(n))
+      start ::: drop(n, end)
+    }
+
   def split[T](n: Int, list: List[T]): (List[T], List[T]) = ???
   def slice[T](i: Int, j: Int, list: List[T]): List[T] = ???
   def rotate[T](n: Int, list: List[T]): List[T] = ???
