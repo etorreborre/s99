@@ -49,7 +49,13 @@ trait ListsSolutions {
       case a :: rest                => a :: compress(rest)
     }
 
-  def pack[T](list: List[T]): T = ???
+  def pack[T](list: List[T]): List[List[T]] = {
+    list match {
+      case Nil       => Nil
+      case a :: rest => (a :: rest.takeWhile(_ == a)) :: pack(rest.dropWhile(_ == a))
+    }
+  }
+
   def encode[T](list: List[T]): List[(Int, T)] = ???
   def encodeModified[T](list: List[T]): List[(Int, T)] = ???
   def decode[T](list: List[(Int, T)]): List[T] = ???
