@@ -8,11 +8,11 @@ trait ListsSolutions {
   def penultimate[T](list: List[T]): T = ???
   def nth[T](n: Int, list: List[T]): T = ???
   def length[T](list: List[T]): Int = ???
-  def reverse[T](list: List[T]): T = ???
+  def reverse[T](list: List[T]): List[T] = ???
   def isPalindrome[T](list: List[T]): Boolean = ???
   def flatten[T](list: List[Any]): List[T] = ???
-  def compress[T](list: List[T]): T = ???
-  def pack[T](list: List[T]): T = ???
+  def compress[T](list: List[T]): List[T] = ???
+  def pack[T](list: List[T]): List[List[T]] = ???
   def encode[T](list: List[T]): List[(Int, T)] = ???
   def encodeModified[T](list: List[T]): List[(Int, T)] = ???
   def decode[T](list: List[(Int, T)]): List[T] = ???

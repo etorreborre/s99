@@ -60,64 +60,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GraphsSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala">
+      <file leaf-file-name="ListsSpec.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="1470" selection-end="1470" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArithmeticSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="0" selection-start="3174" selection-end="3174" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphsProblems.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/GraphsProblems.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphsSolutions.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/s99/GraphsSolutions.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="1" selection-start="2887" selection-end="2887" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MultiwayTreesSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="123" selection-start="2038" selection-end="2038" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MultiwayTreesProblems.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesProblems.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="1" selection-start="351" selection-end="611" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MultiwayTreesSolutions.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/s99/MultiwayTreesSolutions.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+            <state line="8" column="123" selection-start="694" selection-end="695" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -126,7 +72,7 @@
       <file leaf-file-name="ListsProblems.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsProblems.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="6" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
+            <state line="14" column="17" selection-start="569" selection-end="574" vertical-scroll-proportion="-8.153846">
               <folding />
             </state>
           </provider>
@@ -135,61 +81,7 @@
       <file leaf-file-name="ListsSolutions.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="35" selection-start="220" selection-end="220" vertical-scroll-proportion="0.16760564">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogicAndCodesSolutions.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/s99/LogicAndCodesSolutions.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Solutions.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/s99/Solutions.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListsSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArithmeticSolutions.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ArithmeticSolutions.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BinaryTreesSolutions.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/s99/BinaryTreesSolutions.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BinaryTreesSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="6" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
+            <state line="14" column="43" selection-start="466" selection-end="466" vertical-scroll-proportion="0.31564987">
               <folding />
             </state>
           </provider>
@@ -750,13 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsProblems.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/LogicAndCodesSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
@@ -767,13 +652,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/Solutions.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ArithmeticSolutions.scala">
@@ -802,9 +680,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="123" selection-start="694" selection-end="695" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsProblems.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="17" selection-start="569" selection-end="574" vertical-scroll-proportion="-8.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="220" selection-end="220" vertical-scroll-proportion="0.16760564">
+        <state line="14" column="43" selection-start="466" selection-end="466" vertical-scroll-proportion="0.31564987">
           <folding />
         </state>
       </provider>
