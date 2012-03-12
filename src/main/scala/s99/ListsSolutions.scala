@@ -49,15 +49,18 @@ trait ListsSolutions {
       case a :: rest                => a :: compress(rest)
     }
 
-  def pack[T](list: List[T]): List[List[T]] = {
+  def pack[T](list: List[T]): List[List[T]] =
     list match {
       case Nil       => Nil
       case a :: rest => (a :: rest.takeWhile(_ == a)) :: pack(rest.dropWhile(_ == a))
     }
-  }
 
-  def encode[T](list: List[T]): List[(Int, T)] = ???
-  def encodeModified[T](list: List[T]): List[(Int, T)] = ???
+  def encode[T](list: List[T]): List[(Int, T)] =
+    pack(list).map(l => (l.size, l.head))
+
+  def encodeModified[T](list: List[T]): List[Any] =
+    pack(list).map(l => if (l.size == 1) l.head else (l.size, l.head))
+
   def decode[T](list: List[(Int, T)]): List[T] = ???
   def encodeDirect[T](list: List[T]): List[(Int, T)] = ???
   def duplicate[T](list: List[T]): List[T] = ???
