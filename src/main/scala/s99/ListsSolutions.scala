@@ -42,7 +42,13 @@ trait ListsSolutions {
       case a :: rest            => a :: flatten(rest)
     }
 
-  def compress[T](list: List[T]): T = ???
+  def compress[T](list: List[T]): List[T] =
+    list match {
+      case Nil                      => Nil
+      case a :: b :: rest if a == b => compress(a :: rest)
+      case a :: rest                => a :: compress(rest)
+    }
+
   def pack[T](list: List[T]): T = ???
   def encode[T](list: List[T]): List[(Int, T)] = ???
   def encodeModified[T](list: List[T]): List[(Int, T)] = ???
