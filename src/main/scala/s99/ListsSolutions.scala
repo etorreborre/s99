@@ -10,7 +10,7 @@ trait ListsSolutions {
   def length[T](list: List[T]): Int = ???
   def reverse[T](list: List[T]): List[T] = ???
   def isPalindrome[T](list: List[T]): Boolean = ???
-  def flatten[T](list: List[Any]): List[T] = ???
+  def flatten(list: List[Any]): List[Any] = ???
   def compress[T](list: List[T]): List[T] = ???
   def pack[T](list: List[T]): List[List[T]] = ???
   def encode[T](list: List[T]): List[(Int, T)] = ???
