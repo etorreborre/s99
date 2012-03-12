@@ -9,17 +9,23 @@ trait ListsSolutions {
     case a :: Nil  => a
     case a :: rest => last(rest)
   }
+
   def penultimate[T](list: List[T]): T = list match {
     case Nil            => sys.error("empty list")
     case a :: Nil       => sys.error("list with one element only")
     case a :: b :: Nil  => a
     case a :: rest      => penultimate(rest)
   }
+
   def nth[T](n: Int, list: List[T]): T =
     if (list.size == n + 1) last(list)
     else nth(n, list.dropRight(1))
 
-  def length[T](list: List[T]): Int = if (list.size == 1) 1 else 1 + list.drop(1).size
+  def length[T](list: List[T]): Int =
+    list match {
+      case Nil       => 0
+      case a :: rest => 1 + length(rest)
+    }
 
   def reverse[T](list: List[T]): List[T] = list match {
     case Nil       => list
@@ -27,8 +33,15 @@ trait ListsSolutions {
     case a :: rest => reverse(rest) :+ a
   }
 
-  def isPalindrome[T](list: List[T]): Boolean = ???
-  def flatten[T](list: List[Any]): List[T] = ???
+  def isPalindrome[T](list: List[T]): Boolean = list == reverse(list)
+
+  def flatten(list: List[Any]): List[Any] =
+    list match {
+      case Nil                  => list
+      case (a :: rest) :: other => a :: flatten(rest) ::: flatten(other)
+      case a :: rest            => a :: flatten(rest)
+    }
+
   def compress[T](list: List[T]): T = ???
   def pack[T](list: List[T]): T = ???
   def encode[T](list: List[T]): List[(Int, T)] = ???
