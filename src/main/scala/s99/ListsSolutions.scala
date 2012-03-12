@@ -7,7 +7,7 @@ trait ListsSolutions {
   def last[T](list: List[T]): T = ???
   def penultimate[T](list: List[T]): T = ???
   def nth[T](n: Int, list: List[T]): T = ???
-  def length[T](list: List[T]): T = ???
+  def length[T](list: List[T]): Int = ???
   def reverse[T](list: List[T]): T = ???
   def isPalindrome[T](list: List[T]): Boolean = ???
   def flatten[T](list: List[Any]): List[T] = ???
