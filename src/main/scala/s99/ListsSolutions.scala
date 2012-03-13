@@ -139,7 +139,13 @@ trait ListsSolutions {
     else if (i == j) List(i)
     else List(i) ::: range(i + 1, j)
 
-  def randomSelect[T](n: Int, list: List[T]): List[T] = ???
+  def randomSelect[T](n: Int, list: List[T]): List[T] =
+    if (n <= 0) Nil
+    else {
+      val (rest, removed) = removeAt((new scala.util.Random).nextInt(list.size), list)
+      removed :: randomSelect(n - 1, rest)
+    }
+
   def lotto[T](i: Int, j: Int): List[Int] = ???
   def randomPermute[T](list: List[T]): List[T] = ???
   def combinations[T](n: Int, list: List[T]): List[List[T]] = ???
