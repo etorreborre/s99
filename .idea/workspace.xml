@@ -63,7 +63,7 @@
       <file leaf-file-name="ListsSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="123" selection-start="694" selection-end="695" vertical-scroll-proportion="0.0">
+            <state line="25" column="124" selection-start="2236" selection-end="2236" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -72,7 +72,7 @@
       <file leaf-file-name="ListsProblems.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsProblems.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="17" selection-start="569" selection-end="574" vertical-scroll-proportion="-8.153846">
+            <state line="32" column="0" selection-start="2051" selection-end="2051" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -81,7 +81,7 @@
       <file leaf-file-name="ListsSolutions.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="43" selection-start="466" selection-end="466" vertical-scroll-proportion="0.31564987">
+            <state line="25" column="54" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.5636605">
               <folding />
             </state>
           </provider>
@@ -101,7 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/TestSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/GraphsProblems.scala" />
@@ -110,12 +109,13 @@
         <option value="$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesProblems.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/Solutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/Solutions.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/ArithmeticSolutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/BinaryTreesSolutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/LogicAndCodesSolutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/MultiwayTreesSolutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/GraphsSolutions.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/s99/ListsProblems.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala" />
       </list>
     </option>
@@ -335,9 +335,9 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -378,17 +378,6 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method>
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <module name="" />
       <setting name="path" value="" />
@@ -399,6 +388,17 @@
       <method>
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method>
+        <option name="BuildArtifacts" enabled="false" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -604,9 +604,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="1470" selection-end="1470" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="25" column="0" selection-start="1470" selection-end="1470" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala">
@@ -616,37 +614,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/GraphsProblems.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="4" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="123" selection-start="2038" selection-end="2038" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="38" column="123" selection-start="2038" selection-end="2038" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesProblems.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="1" selection-start="351" selection-end="611" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="1" selection-start="351" selection-end="611" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/MultiwayTreesSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/LogicAndCodesSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/Solutions.scala">
@@ -656,16 +644,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ArithmeticSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/BinaryTreesSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala">
@@ -675,28 +659,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/GraphsSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="1" selection-start="2887" selection-end="2887" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="101" column="1" selection-start="2887" selection-end="2887" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="123" selection-start="694" selection-end="695" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="25" column="124" selection-start="2236" selection-end="2236" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ListsProblems.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="569" selection-end="574" vertical-scroll-proportion="-8.153846">
+        <state line="32" column="0" selection-start="2051" selection-end="2051" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="43" selection-start="466" selection-end="466" vertical-scroll-proportion="0.31564987">
+        <state line="25" column="54" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.5636605">
           <folding />
         </state>
       </provider>

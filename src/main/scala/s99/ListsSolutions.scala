@@ -23,7 +23,7 @@ trait ListsSolutions {
   def split[T](n: Int, list: List[T]): (List[T], List[T]) = ???
   def slice[T](i: Int, j: Int, list: List[T]): List[T] = ???
   def rotate[T](n: Int, list: List[T]): List[T] = ???
-  def removeAt[T](i: Int, list: List[T]): List[T] = ???
+  def removeAt[T](i: Int, list: List[T]): (List[T], T) = ???
   def insertAt[T](t: T, i: Int, list: List[T]): List[T] = ???
   def range[T](i: Int, j: Int): List[Int] = ???
   def randomSelect[T](n: Int, list: List[T]): List[T] = ???
