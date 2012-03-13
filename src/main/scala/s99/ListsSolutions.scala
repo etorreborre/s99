@@ -146,9 +146,22 @@ trait ListsSolutions {
       removed :: randomSelect(n - 1, rest)
     }
 
-  def lotto[T](i: Int, j: Int): List[Int] = ???
-  def randomPermute[T](list: List[T]): List[T] = ???
-  def combinations[T](n: Int, list: List[T]): List[List[T]] = ???
+  def lotto[T](n: Int, max: Int): List[Int] = randomSelect(n, range(1, max))
+  def randomPermute[T](list: List[T]): List[T] = randomSelect(list.size, list)
+
+  def combinations[T](n: Int, list: List[T]): List[List[T]] =
+    if (n <= 0) List(Nil)
+    else if (n == 1)
+      list match {
+        case Nil => List(Nil)
+        case a :: rest => List(a) :: combinations(n, rest)
+      }
+    else
+      list match {
+        case Nil       => List(Nil)
+        case a :: rest => combinations(n - 1, rest).map(a :: _) ::: combinations(n, rest)
+      }
+
   def group3[T](list: List[T]): List[List[List[T]]] = ???
   def group[T](ns: List[Int], list: List[T]): List[List[List[T]]] = ???
   def lsort[T](list: List[List[T]]): List[List[T]] = ???

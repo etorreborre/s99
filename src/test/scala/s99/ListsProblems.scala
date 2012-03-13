@@ -42,9 +42,18 @@ trait ListsProblems extends Specification with ThrownExpectations with ListsSolu
     selected.size === 3
     selected.distinct.size === selected.size
   }
-  def P24 = lotto(6, 49) === List(23, 1, 17, 33, 21, 37)
-  def P25 = randomPermute(List('a, 'b, 'c, 'd, 'e, 'f)) === List('b, 'a, 'd, 'c, 'e, 'f)
+  def P24 = {
+    val selected = lotto(6, 49)
+    selected.size === 6
+    ((_: Int) must be_<=(49)).forall(selected)
+  }
+  def P25 = {
+    val permute = randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
+    permute.size === 6
+    permute.distinct.size === permute.size
+  }
   def P26 = combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)) must contain(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e))
+
   def P27 = {
     group3(List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) must contain (
       List(List("Aldo", "Beat"), List("Carla", "David", "Evi"), List("Flip", "Gary", "Hugo", "Ida")))
