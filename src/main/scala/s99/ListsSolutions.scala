@@ -91,10 +91,38 @@ trait ListsSolutions {
 
   def split[T](n: Int, list: List[T]): (List[T], List[T]) = ???
   def slice[T](i: Int, j: Int, list: List[T]): List[T] = ???
-  def rotate[T](n: Int, list: List[T]): List[T] = ???
-  def removeAt[T](i: Int, list: List[T]): List[T] = ???
-  def insertAt[T](t: T, i: Int, list: List[T]): List[T] = ???
-  def range[T](i: Int, j: Int): List[Int] = ???
+
+  def rotate[T](n: Int, list: List[T]): List[T] =
+    if (n < 0) reverse(rotate(-n, reverse(list)))
+    else if (n == 0) list
+    else list match {
+      case Nil       => Nil
+      case a :: rest => rotate(n - 1, rest :+ a)
+    }
+
+  def removeAt[T](i: Int, list: List[T]): (List[T], T) =
+    if (i < 0) sys.error("i must not be negative "+i)
+    else if (i >= list.size) sys.error("i must not be > list.size "+i+" list size is "+list.size)
+    else list match {
+      case Nil                 => sys.error("the list is empty")
+      case a :: rest if i == 0 => (rest, a)
+      case a :: rest           => val (remaining, removed) = removeAt(i - 1, rest); (a :: remaining, removed)
+    }
+
+  def insertAt[T](t: T, i: Int, list: List[T]): List[T] =
+    if (i < 0) sys.error("i must not be negative "+i)
+    else if (i >= list.size) sys.error("i must not be > list.size "+i+" list size is "+list.size)
+    else list match {
+      case Nil                 => t :: Nil
+      case a :: rest if i == 0 => t :: a :: rest
+      case a :: rest           => a :: insertAt(t, i - 1, rest)
+    }
+
+  def range[T](i: Int, j: Int): List[Int] =
+    if (i > j) sys.error("i can not be > j "+ (i, j))
+    else if (i == j) List(i)
+    else List(i) ::: range(i + 1, j)
+
   def randomSelect[T](n: Int, list: List[T]): List[T] = ???
   def lotto[T](i: Int, j: Int): List[Int] = ???
   def randomPermute[T](list: List[T]): List[T] = ???
