@@ -89,8 +89,25 @@ trait ListsSolutions {
       start ::: drop(n, end)
     }
 
-  def split[T](n: Int, list: List[T]): (List[T], List[T]) = ???
-  def slice[T](i: Int, j: Int, list: List[T]): List[T] = ???
+  def split[T](n: Int, list: List[T]): (List[T], List[T]) =
+    if (list.size == n)
+      (list, Nil)
+    else if (n == 0)
+      (Nil, list)
+    else
+      list match {
+        case Nil       => (Nil, Nil)
+        case a :: rest => val (start, end) = split(n - 1, rest); (a :: start, end)
+      }
+
+  def slice[T](i: Int, j: Int, list: List[T]): List[T] = {
+    def drop(n: Int, l: List[T]): List[T] =
+      if (n <= 0) l
+      else l match { case Nil => l; case a :: rest => drop(n - 1, rest) }
+
+    reverse(drop(list.size - j, reverse(drop(i, list))))
+  }
+
   def rotate[T](n: Int, list: List[T]): List[T] = ???
   def removeAt[T](i: Int, list: List[T]): List[T] = ???
   def insertAt[T](t: T, i: Int, list: List[T]): List[T] = ???
