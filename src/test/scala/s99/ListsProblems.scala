@@ -37,7 +37,11 @@ trait ListsProblems extends Specification with ThrownExpectations with ListsSolu
   def P20 = removeAt(1, List('a, 'b, 'c, 'd)) === (List('a, 'c, 'd),'b)
   def P21 = insertAt('new, 1, List('a, 'b, 'c, 'd)) === List('a, 'new, 'b, 'c, 'd)
   def P22 = range(4, 9) === List(4, 5, 6, 7, 8, 9)
-  def P23 = randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)) === List('e, 'd, 'a)
+  def P23 = {
+    val selected = randomSelect(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h))
+    selected.size === 3
+    selected.distinct.size === selected.size
+  }
   def P24 = lotto(6, 49) === List(23, 1, 17, 33, 21, 37)
   def P25 = randomPermute(List('a, 'b, 'c, 'd, 'e, 'f)) === List('b, 'a, 'd, 'c, 'e, 'f)
   def P26 = combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)) must contain(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e))
