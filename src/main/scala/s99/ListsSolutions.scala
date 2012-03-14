@@ -162,10 +162,29 @@ trait ListsSolutions {
         case a :: rest => combinations(n - 1, rest).map(a :: _) ::: combinations(n, rest)
       }
 
-  def group3[T](list: List[T]): List[List[List[T]]] = ???
-  def group[T](ns: List[Int], list: List[T]): List[List[List[T]]] = ???
-  def lsort[T](list: List[List[T]]): List[List[T]] = ???
-  def lsortFreq[T](list: List[List[T]]): List[List[T]] = ???
+  def group3[T](list: List[T]): List[List[List[T]]] = groups(List(2, 3, 4), list)
+
+  def groups[T](ns: List[Int], list: List[T]): List[List[List[T]]] = {
+    ns match {
+      case Nil       => List(List(Nil))
+      case n :: nrest => {
+        combinations(n, list).flatMap { combination =>
+          val rest = list.filterNot(combination.contains)
+          if (rest.isEmpty)
+            List(List(combination))
+          else
+            groups(nrest, rest).map(combination :: _)
+        }
+      }
+    }
+  }
+
+  def lsort[T](lists: List[List[T]]): List[List[T]] = lists.sortBy(_.size)
+
+  def lsortFreq[T](lists: List[List[T]]): List[List[T]] = {
+    val frequencies = lists.map(_.size).groupBy(identity).map { case (n, l) => (n, l.size) }
+    lists.sortBy(l => frequencies(l.size))
+  }
 
 }
 
