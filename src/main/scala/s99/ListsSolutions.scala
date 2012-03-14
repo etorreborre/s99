@@ -31,9 +31,8 @@ trait ListsSolutions {
   def randomPermute[T](list: List[T]): List[T] = ???
   def combinations[T](n: Int, list: List[T]): List[List[T]] = ???
   def group3[T](list: List[T]): List[List[List[T]]] = ???
-  def group[T](ns: List[Int], list: List[T]): List[List[List[T]]] = ???
+  def groups[T](ns: List[Int], list: List[T]): List[List[List[T]]] = ???
   def lsort[T](list: List[List[T]]): List[List[T]] = ???
   def lsortFreq[T](list: List[List[T]]): List[List[T]] = ???
-
 }
 
