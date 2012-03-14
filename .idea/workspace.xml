@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="533f7f12-5f6e-4f37-a283-149233a263a2" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\projects\scala\s99\src\test\scala\s99\GraphsProblems.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala" />
+      <change type="DELETED" beforePath="C:\projects\scala\s99\src\test\scala\s99\MultiwayTreesProblems.scala" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala" />
     </list>
     <ignored path="s99.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,10 +97,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphsSpec.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GraphsSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="6" selection-start="123" selection-end="123" vertical-scroll-proportion="0.14107884">
+            <state line="6" column="6" selection-start="123" selection-end="123" vertical-scroll-proportion="-3.9230769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiwayTreesSpec.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="5" selection-start="1334" selection-end="1334" vertical-scroll-proportion="0.7036048">
               <folding />
             </state>
           </provider>
@@ -119,7 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/scala/s99/Solutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/Solutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/ArithmeticSolutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/BinaryTreesSolutions.scala" />
@@ -135,6 +143,7 @@
         <option value="$PROJECT_DIR$/src/test/scala/s99/LogicAndCodesSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala" />
       </list>
     </option>
   </component>
@@ -561,14 +570,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1452" height="912" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19105984" sideWeight="0.6713917" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19105984" sideWeight="0.6713917" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39948454" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -638,16 +647,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="123" selection-start="2038" selection-end="2038" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesProblems.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="1" selection-start="351" selection-end="611" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/s99/MultiwayTreesSolutions.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
@@ -717,7 +716,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="6" selection-start="123" selection-end="123" vertical-scroll-proportion="0.14107884">
+        <state line="6" column="6" selection-start="123" selection-end="123" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="5" selection-start="1334" selection-end="1334" vertical-scroll-proportion="0.7036048">
           <folding />
         </state>
       </provider>
