@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="533f7f12-5f6e-4f37-a283-149233a263a2" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\projects\scala\s99\src\test\scala\s99\LogicAndCodesProblems.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/s99/LogicAndCodesSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/s99/LogicAndCodesSpec.scala" />
+      <change type="DELETED" beforePath="C:\projects\scala\s99\src\test\scala\s99\BinaryTreesProblems.scala" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala" />
     </list>
     <ignored path="s99.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,10 +79,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogicAndCodesSpec.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LogicAndCodesSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/s99/LogicAndCodesSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BinaryTreesSpec.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="130" column="46" selection-start="6613" selection-end="6613" vertical-scroll-proportion="0.07317073">
               <folding />
             </state>
           </provider>
@@ -101,7 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesProblems.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/Solutions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/Solutions.scala" />
@@ -117,6 +125,7 @@
         <option value="$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/LogicAndCodesProblems.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/LogicAndCodesSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala" />
       </list>
     </option>
   </component>
@@ -660,11 +669,6 @@
         <state line="2" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/scala-2.9.1/src/scala-library-src.jar!/scala/util/Random.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="6" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.0" />
@@ -701,6 +705,13 @@
     <entry file="file://$PROJECT_DIR$/src/test/scala/s99/LogicAndCodesSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/BinaryTreesSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="46" selection-start="6613" selection-end="6613" vertical-scroll-proportion="0.07317073">
           <folding />
         </state>
       </provider>
