@@ -34,5 +34,6 @@ trait ListsSolutions {
   def groups[T](ns: List[Int], list: List[T]): List[List[List[T]]] = ???
   def lsort[T](list: List[List[T]]): List[List[T]] = ???
   def lsortFreq[T](list: List[List[T]]): List[List[T]] = ???
+
 }
 

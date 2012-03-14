@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="533f7f12-5f6e-4f37-a283-149233a263a2" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\projects\scala\s99\src\test\scala\s99\ListsProblems.scala" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects\scala\s99\src\test\scala\s99\ArithmeticProblems.scala" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala" afterPath="$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala" />
     </list>
     <ignored path="s99.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,19 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListsSolutions.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala">
+      <file leaf-file-name="ArithmeticSpec.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TraversableLike.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/scala-2.9.1/src/scala-library-src.jar!/scala/collection/TraversableLike.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="272" column="6" selection-start="11031" selection-end="11031" vertical-scroll-proportion="0.0">
+            <state line="25" column="4" selection-start="873" selection-end="873" vertical-scroll-proportion="0.5674232">
               <folding />
             </state>
           </provider>
@@ -102,7 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/scala/s99/GraphsSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/GraphsProblems.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/GraphsSolutions.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/MultiwayTreesSpec.scala" />
@@ -118,6 +108,7 @@
         <option value="$PROJECT_DIR$/src/test/scala/s99/Lists2Spec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/s99/ListsSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala" />
       </list>
     </option>
   </component>
@@ -671,23 +662,16 @@
         <state line="63" column="6" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ArithmeticProblems.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="18" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/scala-2.9.1/src/scala-library-src.jar!/scala/collection/TraversableLike.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="272" column="6" selection-start="11031" selection-end="11031" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="2" selection-start="1680" selection-end="1680" vertical-scroll-proportion="0.81708944">
           <folding />
         </state>
       </provider>
@@ -699,9 +683,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/s99/ListsSolutions.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/s99/ArithmeticSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="25" column="4" selection-start="873" selection-end="873" vertical-scroll-proportion="0.5674232">
           <folding />
         </state>
       </provider>
