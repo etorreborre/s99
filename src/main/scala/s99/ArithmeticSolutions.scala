@@ -9,7 +9,9 @@ trait ArithmeticSolutions {
 
   case class ExtendedInt(n: Int) {
 
-    def isPrime: Boolean = ???
+    def isPrime: Boolean =
+      n == 1 || n == 2 || (2 to n/2).forall(n % _ != 0)
+
     def isCoprimeTo(n: Int): Boolean = ???
     def totient: Int = ???
     def improvedTotient: Int = ???
