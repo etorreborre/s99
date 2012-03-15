@@ -1,7 +1,7 @@
 package s99
 
 import org.specs2.mutable.Specification
-import org.specs2.matcher.{MatchResult, Matcher}
+import org.specs2.matcher._
 
 class ArithmeticSpec extends Specification with ArithmeticSolutions {
 

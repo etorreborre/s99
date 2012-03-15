@@ -23,8 +23,12 @@ trait ArithmeticSolutions {
 
   }
 
+  def gcd(m: Int, n: Int): Int =
+    if (m < n) gcd(n, m)
+    else if (m % n == 0) n
+    else gcd(m - m / n * n, n)
+
   def primes: Stream[Int] = ???
-  def gcd(m: Int, n: Int): Int = ???
   def listPrimesinRange(r: Range): List[Int] = ???
   def printGoldbachList(r: Range): List[String] = ???
   def printGoldbachListLimited(r: Range, limit: Int): List[String] = ???
