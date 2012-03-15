@@ -3,8 +3,8 @@ package s99
 import org.specs2.mutable.Specification
 
 class MultiwayTreesSpec extends Specification with MultiwayTreesSolutions {
-  """
-  A multiway tree is composed of a root element and a (possibly empty) set of successors which are multiway trees
+
+  """ A multiway tree is composed of a root element and a (possibly empty) set of successors which are multiway trees
   themselves. A multiway tree is never empty. The set of successor trees is sometimes called a forest.
 
   The code to represent these is somewhat simpler than the code for binary trees, partly because we don't separate

@@ -24,40 +24,37 @@ class ListsSpec extends Specification with ListsSolutions {
   "Flatten a nested list structure" >>
   { flatten(List(List(1, 1), 2, List(3, List(5, 8)))) === List(1, 1, 2, 3, 5, 8) }
 
-  """
-  Eliminate consecutive duplicates of list elements. If a list contains repeated elements they
+  """ Eliminate consecutive duplicates of list elements
+  If a list contains repeated elements they
   should be replaced with a single copy of the element. The order of the elements should not be changed""" >>
   { compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) === List('a, 'b, 'c, 'a, 'd, 'e) }
 
-  """
-  Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements
-  they should be placed in separate sublists """ >>
+  """ Pack consecutive duplicates of list elements into sublists
+  If a list contains repeated elements they should be placed in separate sublists """ >>
   { pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
       List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)) }
 
-  """
-  Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding
-  data compression method. Consecutive duplicates of elements are encoded as tuples (N, E) where N is the number
+  """ Run-length encoding of a list
+  Use the result of problem P09 to implement the so-called run-length encoding data compression method.
+  Consecutive duplicates of elements are encoded as tuples (N, E) where N is the number
   of duplicates of the element E""" >>
   { encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
       List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)) }
 
-  """
-   Modified run-length encoding. Modify the result of problem P10 in such a way that if an element has
-   no duplicates it is simply copied into the result list. Only elements with duplicates are transferred
-   as (N, E) terms""" >>
+  """ Modified run-length encoding
+  Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the
+  result list. Only elements with duplicates are transferred as (N, E) terms""" >>
    { encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
       List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e)) }
 
-  """
-  Decode a run-length encoded list. Given a run-length code list generated as specified in problem P10,
-  construct its uncompressed version""" >>
+  """ Decode a run-length encoded list
+  Given a run-length code list generated as specified in problem P10, construct its uncompressed version""" >>
   { decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) ===
       List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e) }
 
-  """
-  Run-length encoding of a list (direct solution). Implement the so-called run-length encoding data compression
-  method directly. I.e. don't use other methods you've written (like P09's pack); do all the work directly""" >>
+  """ Run-length encoding of a list (direct solution)
+  Implement the so-called run-length encoding data compression method directly. I.e. don't use other methods you've
+  written (like P09's pack); do all the work directly""" >>
   { encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
       List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)) }
 
@@ -73,19 +70,17 @@ class ListsSpec extends Specification with ListsSolutions {
   "Split a list into two parts.  The length of the first part is given. Use a Tuple for your result" >>
   { split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) }
 
-  """
-  Extract a slice from a list. Given two indices, I and K, the slice is the list containing the elements
-  from and including the Ith element up to but not including the Kth element of the original list. Start
-  counting the elements with 0""" >>
+  """ Extract a slice from a list
+  Given two indices, I and K, the slice is the list containing the elements from and including the Ith element up to
+  but not including the Kth element of the original list. Start counting the elements with 0""" >>
   { slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('d, 'e, 'f, 'g) }
 
   "Rotate a list N places to the left" >>
   { rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
     rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i) }
 
-  """
-  Remove the Kth element from a list. Return the list and the removed element in a Tuple.
-  Elements are numbered from 0""" >>
+  """ Remove the Kth element from a list
+  Return the list and the removed element in a Tuple. Elements are numbered from 0""" >>
   { removeAt(1, List('a, 'b, 'c, 'd)) === (List('a, 'c, 'd),'b) }
 
   "Insert an element at a given position into a list" >>
@@ -109,15 +104,13 @@ class ListsSpec extends Specification with ListsSolutions {
     permute.size === 6
     permute.distinct.size === permute.size }
 
-  """
-  Generate the combinations of K distinct objects chosen from the N elements of a list. In how many ways
-  can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities
-  (C(N,K) denotes the well-known binomial coefficient). For pure mathematicians, this result may be great But
-  we want to really generate all the possibilities""" >>
+  """ Generate the combinations of K distinct objects chosen from the N elements of a list
+  In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are
+  C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficient). For pure mathematicians, this
+  result may be great But we want to really generate all the possibilities""" >>
   { combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)) must contain(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e)) }
 
-  """
-  Group the elements of a set into disjoint subsets.
+  """ Group the elements of a set into disjoint subsets
    a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons?
       Write a function that generates all the possibilities.
    b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate
@@ -139,8 +132,7 @@ class ListsSpec extends Specification with ListsSolutions {
     groups(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) must contain(
       List(List("Aldo", "Beat"), List("Carla", "David"), List("Evi", "Flip", "Gary", "Hugo", "Ida"))) }
 
-  """
-  Sorting a list of lists according to length of sublists.
+  """ Sorting a list of lists according to length of sublists
     a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements
        of the list according to their length. E.g. short lists first, longer lists later, or vice versa.
     b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is
