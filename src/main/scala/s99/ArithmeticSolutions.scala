@@ -8,14 +8,24 @@ trait ArithmeticSolutions {
   implicit def extendInt(n: Int): ExtendedInt = ExtendedInt(n)
 
   case class ExtendedInt(n: Int) {
+    def isDivisor = (i: Int) => n % i == 0
 
     def isPrime: Boolean =
-      n == 1 || n == 2 || (2 to n/2).forall(n % _ != 0)
+      n == 1 || n == 2 || !(2 to n/2).exists(isDivisor)
 
     def isCoprimeTo(other: Int): Boolean = gcd(n, other) == 1
     def totient: Int = (1 to n).filter(_.isCoprimeTo(n)).size
     def improvedTotient: Int = ???
-    def primeFactors: List[Int] = ???
+
+    def primeFactors: List[Int] =
+      if (n <= 1)      Nil
+      else if (n <= 3) List(n)
+      else
+        (2 to n).filter(isDivisor).take(1).headOption match {
+          case None    => List(n)
+          case Some(p) => (p :: (n / p).primeFactors).sorted
+        }
+
     def primeFactorMultiplicity: List[(Int, Int)] = ???
     def primeFactorMultiplicityMap: Map[Int, Int] = ???
     def listPrimesinRange(r: Range): List[Int] = ???
