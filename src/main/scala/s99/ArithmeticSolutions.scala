@@ -47,8 +47,9 @@ trait ArithmeticSolutions {
     else if (m % n == 0) n
     else gcd(m - m / n * n, n)
 
-  def primes: Stream[Int] = ???
-  def listPrimesinRange(r: Range): List[Int] = ???
+  def primes: Stream[Int] = Stream.from(1).filter(_.isPrime)
+
+  def listPrimesinRange(r: Range): List[Int] = r.filter(_.isPrime).toList
   def printGoldbachList(r: Range): List[String] = ???
   def printGoldbachListLimited(r: Range, limit: Int): List[String] = ???
 
