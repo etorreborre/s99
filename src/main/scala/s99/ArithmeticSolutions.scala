@@ -41,8 +41,9 @@ trait ArithmeticSolutions {
       val sums = for {
         a <- listPrimesinRange(1 to n)
         b <- listPrimesinRange(1 to n)
+        if a + b == n
       } yield (a, b)
-      sums.filter { p => val (a, b) = p; a + b == n }.head
+      sums.head
     }
 
   }
