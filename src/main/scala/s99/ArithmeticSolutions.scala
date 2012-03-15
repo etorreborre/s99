@@ -14,8 +14,13 @@ trait ArithmeticSolutions {
       n == 1 || n == 2 || !(2 to n/2).exists(isDivisor)
 
     def isCoprimeTo(other: Int): Boolean = gcd(n, other) == 1
+
     def totient: Int = (1 to n).filter(_.isCoprimeTo(n)).size
-    def improvedTotient: Int = ???
+
+    def improvedTotient: Int = primeFactorMultiplicity.foldLeft(1) { (res, cur) =>
+      val (prime, number) = cur
+      res * (prime - 1) * math.pow(prime, (number - 1)).toInt
+    }
 
     def primeFactors: List[Int] =
       if (n <= 1)      Nil
