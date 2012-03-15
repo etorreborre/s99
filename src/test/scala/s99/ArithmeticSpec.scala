@@ -27,8 +27,8 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
 
   """ Determine the prime factors of a given positive integer (2)
   Construct a list containing the prime factors and their multiplicity. Alternately, use a Map for the result""" >>
-  { 315.primeFactorMultiplicity === List((3,2), (5,1), (7,1))
-    315.primeFactorMultiplicityMap === Map(3 -> 2, 5 -> 1, 7 -> 1) }
+  { 315.primeFactorMultiplicityMap === Map(3 -> 2, 5 -> 1, 7 -> 1)
+    315.primeFactorMultiplicity === List((3,2), (5,1), (7,1)) }
 
   """ Calculate Euler's totient function phi(m) (improved)
   See problem P34 for the definition of Euler's totient function. If the list of the prime factors of a number m is
