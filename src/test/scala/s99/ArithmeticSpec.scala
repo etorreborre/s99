@@ -43,7 +43,10 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
 
   """ Compare the two methods of calculating Euler's totient function
   Use the solutions of problems P34 and P37 to compare the algorithms. Try to calculate phi(10090) as an example""" >>
-  { 10090.totient === 4032 }
+  { val (r1, t1) = withTime(10090.totient)
+    val (r2, t2) = withTime(10090.improvedTotient)
+    r1 === r2
+    t1 must be_>(t2) }
 
   """ A list of prime numbers
   Given a range of integers by its lower and upper limit, construct a list of all prime numbers in that range""" >>
@@ -77,4 +80,12 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
 
   def bePrime: Matcher[Int]             = (i: Int) => (i.isPrime, i+" is not prime")
   def beCoprimeTo(j: Int): Matcher[Int] = (i: Int) => (i.isCoprimeTo(j), i+" is not coprime to"+j)
+
+  /**
+   * @return the result of a computation with the time in millis to compute it
+   */
+  def withTime[T](t: =>T): (T, Long) = {
+    val start = System.currentTimeMillis()
+    (t, System.currentTimeMillis() - start)
+  }
 }
