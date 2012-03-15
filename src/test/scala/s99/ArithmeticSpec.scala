@@ -14,7 +14,7 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
 
   """ Determine whether two positive integer numbers are coprime
   Two numbers are coprime if their greatest common divisor equals 1""" >>
-  { 35.isCoprimeTo(64) must beTrue }
+  { 35 must beCoprimeTo(64) }
 
   """ Calculate Euler's totient function phi(m)
   Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r <= m) that are
@@ -75,5 +75,6 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
       "1856 = 67 + 1789",
       "1928 = 61 + 1867") }
 
-  def bePrime: Matcher[Int] = (i: Int) => (i.isPrime, i+" is prime", i+" is not prime")
+  def bePrime: Matcher[Int]             = (i: Int) => (i.isPrime, i+" is not prime")
+  def beCoprimeTo(j: Int): Matcher[Int] = (i: Int) => (i.isCoprimeTo(j), i+" is not coprime to"+j)
 }

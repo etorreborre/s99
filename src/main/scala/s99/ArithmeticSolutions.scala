@@ -12,7 +12,7 @@ trait ArithmeticSolutions {
     def isPrime: Boolean =
       n == 1 || n == 2 || (2 to n/2).forall(n % _ != 0)
 
-    def isCoprimeTo(n: Int): Boolean = ???
+    def isCoprimeTo(other: Int): Boolean = gcd(n, other) == 1
     def totient: Int = ???
     def improvedTotient: Int = ???
     def primeFactors: List[Int] = ???
