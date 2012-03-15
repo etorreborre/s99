@@ -37,8 +37,13 @@ trait ArithmeticSolutions {
     def primeFactorMultiplicity: List[(Int, Int)] =
       primeFactorMultiplicityMap.toList.sorted
 
-    def listPrimesinRange(r: Range): List[Int] = ???
-    def goldbach: (Int, Int) = ???
+    def goldbach: (Int, Int) = {
+      val sums = for {
+        a <- listPrimesinRange(1 to n)
+        b <- listPrimesinRange(1 to n)
+      } yield (a, b)
+      sums.filter { p => val (a, b) = p; a + b == n }.head
+    }
 
   }
 
@@ -50,6 +55,7 @@ trait ArithmeticSolutions {
   def primes: Stream[Int] = Stream.from(1).filter(_.isPrime)
 
   def listPrimesinRange(r: Range): List[Int] = r.filter(_.isPrime).toList
+
   def printGoldbachList(r: Range): List[String] = ???
   def printGoldbachListLimited(r: Range, limit: Int): List[String] = ???
 
