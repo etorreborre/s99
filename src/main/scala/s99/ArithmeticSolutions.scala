@@ -26,7 +26,9 @@ trait ArithmeticSolutions {
           case Some(p) => (p :: (n / p).primeFactors).sorted
         }
 
-    def primeFactorMultiplicity: List[(Int, Int)] = ???
+    def primeFactorMultiplicity: List[(Int, Int)] =
+      primeFactors.groupBy(identity).map { case (p, l) => (p, l.size) }.toList.sorted
+
     def primeFactorMultiplicityMap: Map[Int, Int] = ???
     def listPrimesinRange(r: Range): List[Int] = ???
     def goldbach: (Int, Int) = ???
