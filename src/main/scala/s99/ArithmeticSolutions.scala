@@ -37,14 +37,14 @@ trait ArithmeticSolutions {
     def primeFactorMultiplicity: List[(Int, Int)] =
       primeFactorMultiplicityMap.toList.sorted
 
-    def goldbach: (Int, Int) = {
-      val sums = for {
+    def goldbachs: List[(Int, Int)] =
+      for {
         a <- listPrimesinRange(1 to n)
-        b <- listPrimesinRange(1 to n)
+        b <- 0 :: listPrimesinRange(1 to n)
         if a + b == n
       } yield (a, b)
-      sums.head
-    }
+
+    def goldbach: (Int, Int) = goldbachs.headOption.getOrElse((n, n))
 
   }
 
@@ -57,7 +57,17 @@ trait ArithmeticSolutions {
 
   def listPrimesinRange(r: Range): List[Int] = r.filter(_.isPrime).toList
 
-  def printGoldbachList(r: Range): List[String] = ???
-  def printGoldbachListLimited(r: Range, limit: Int): List[String] = ???
+  def goldbachList(r: Range): List[(Int, Int)] =
+    r.map(_.goldbach).sortBy(p => p._1+p._2).toList
 
+  def goldbachs(r: Range) =
+    r.flatMap(_.goldbachs).sortBy(p => p._1+p._2)
+
+  def printGoldbachList(r: Range): List[String] =
+    goldbachList(r).map { case (a, b) => printSum(a, b) }
+
+  def printGoldbachListLimited(r: Range, limit: Int): List[String] =
+    goldbachs(r).map { case (a, b) if a >= limit && b >= limit => printSum(a, b)}.toList
+
+  def printSum(a: Int, b: Int) = (a + b)+" = "+a+" + "+b
 }
