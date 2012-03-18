@@ -1,11 +1,13 @@
 package s99
 
 import org.specs2.mutable.Specification
+import org.specs2.matcher.{MatchResult, Matcher}
 
 class ArithmeticSpec extends Specification with ArithmeticSolutions {
 
   "Determine whether a given integer number is prime" >>
-  { 7.isPrime must beTrue }
+  { foreach(Seq(7, 13, 19)) { i => i must bePrime }
+    foreach(Seq(4, 9, 51))  { i => i must not(bePrime) } }
 
   "Determine the greatest common divisor of two positive integer numbers. Use Euclid's algorithm" >>
   { gcd(36, 63) === 9 }
@@ -73,4 +75,5 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
       "1856 = 67 + 1789",
       "1928 = 61 + 1867") }
 
+  def bePrime: Matcher[Int] = (i: Int) => (i.isPrime, i+" is prime", i+" is not prime")
 }
