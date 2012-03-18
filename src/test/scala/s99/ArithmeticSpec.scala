@@ -65,12 +65,18 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
   Very rarely, the primes are both bigger than, say, 50. Try to find out how many such cases there are in the
   range 2..3000""" >>
   { printGoldbachList(9 to 20) === List(
+      "9 = 2 + 7",
       "10 = 3 + 7",
-      "12 = 5 + 7",
-      "14 = 3 + 11",
+      "11 = 11 + 0",
+      "12 = 1 + 11",
+      "13 = 2 + 11",
+      "14 = 1 + 13",
+      "15 = 2 + 13",
       "16 = 3 + 13",
-      "18 = 5 + 13",
-      "20 = 3 + 17")
+      "17 = 17 + 0",
+      "18 = 1 + 17",
+      "19 = 2 + 17",
+      "20 = 1 + 19")
 
     printGoldbachListLimited(1 to 2000, 50) === List(
       "992 = 73 + 919",
