@@ -16,23 +16,16 @@ trait LogicAndCodesSolutions { outer =>
 
   }
   
-  def and(a: Boolean,  b: =>Boolean): Boolean = a && b
-  def or(a: Boolean,   b: =>Boolean): Boolean = a || b
-  def nand(a: Boolean,  b: =>Boolean): Boolean = !and(a, b)
-  def nor(a: Boolean,  b: =>Boolean): Boolean = !or(a, b)
-  def xor(a: Boolean,  b: =>Boolean): Boolean = (a or b) && a != b
-  def impl(a: Boolean,  b: =>Boolean): Boolean = !a or b
-  def equ(a: Boolean,  b: =>Boolean): Boolean = (a impl b) && (b impl a)
-  def not(a: Boolean) = !a
+  def and(a: Boolean,  b: =>Boolean): Boolean = ???
+  def or(a: Boolean,   b: =>Boolean): Boolean = ???
+  def nand(a: Boolean,  b: =>Boolean): Boolean = ???
+  def nor(a: Boolean,  b: =>Boolean): Boolean = ???
+  def xor(a: Boolean,  b: =>Boolean): Boolean = ???
+  def impl(a: Boolean,  b: =>Boolean): Boolean = ???
+  def equ(a: Boolean,  b: =>Boolean): Boolean = ???
+  def not(a: Boolean) = ???
   
-  def table2(f: (Boolean, Boolean) => Boolean): String = {
-    def row(a: Boolean, b: Boolean) = Seq(a, b, f(a, b)).map(_.toString.padTo(6, ' ')).mkString
-    Seq("A     B     result",
-        row(true,  true),
-        row(true,  false),
-        row(false, true),
-        row(false, false)).mkString("\n")
-  }
+  def table2(f: (Boolean, Boolean) => Boolean): String = ???
 
   def gray(n: Int): List[String] = ???
   def huffman(list: List[(String,  Int)]): List[(String, String)] = ???
