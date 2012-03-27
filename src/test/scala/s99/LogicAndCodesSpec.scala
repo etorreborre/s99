@@ -27,11 +27,11 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
   true  false true
   false true  false
   false false false""" >>
-  {  "a" | "b" | "and(a, b)" |>
-      T  ! T   ! T           |
-      T  ! F   ! F           |
-      F  ! T   ! F           |
-      F  ! F   ! F           | { and(_, _) === _ }
+  { "a" | "b" | "and(a, b)" |>
+     T  ! T   ! T           |
+     T  ! F   ! F           |
+     F  ! T   ! F           |
+     F  ! F   ! F           | { and(_, _) === _ }
 
     "a" | "b" | "or(a, b)"  |>
      T  ! T   ! T           |
@@ -89,12 +89,11 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
   false false false
   """ >>
   { table2((a: Boolean, b: Boolean) => a and (a or not(b))) ===
-    """
-    |A     B     result
-    |true  true  true
-    |true  false true
-    |false true  false
-    |false false false""".stripMargin('|') }
+    Seq("A     B     result",
+        "true  true  true  ",
+        "true  false true  ",
+        "false true  false ",
+        "false false false ").mkString("\n") }
 
   """ Truth tables for logical expressions (3). Omitted for now""" >>
   { pending }
