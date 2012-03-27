@@ -38,7 +38,7 @@ trait ListsSolutions {
   def flatten(list: List[Any]): List[Any] =
     list match {
       case Nil                  => list
-      case (a :: rest) :: other => a :: flatten(rest) ::: flatten(other)
+      case (a :: rest) :: other => flatten(List(a)) ::: flatten(rest) ::: flatten(other)
       case a :: rest            => a :: flatten(rest)
     }
 
