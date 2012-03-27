@@ -1,6 +1,7 @@
 package s99
 import org.specs2.mutable._
 import org.specs2.ScalaCheck
+import org.scalacheck.Prop.collect
 
 class ListsSpec extends Specification with ListsSolutions with ScalaCheck with ArbitraryLists {
 
@@ -22,8 +23,10 @@ class ListsSpec extends Specification with ListsSolutions with ScalaCheck with A
   "Find out whether a list is a palindrome" >>
   { isPalindrome(List(1, 2, 3, 2, 1)) must beTrue }
 
-  "Flatten a nested list structure" >> check { list: List[Any] =>
-    flatten(List(List(1, 1), 2, List(3, List(5, 8)))) must not have((_:Any).isInstanceOf[List[_]])
+  "Flatten a nested list structure" >> check { l: List[Any] =>
+    collect("depth "+depth(l)) {
+      flatten(l) must not have((_:Any).isInstanceOf[List[_]])
+    }
   }
 
   """ Eliminate consecutive duplicates of list elements
@@ -158,4 +161,14 @@ trait ArbitraryLists {
   def genList: Gen[List[Any]] = listOf(genAny)
   def genList1: Gen[List[Int]] = listOf(choose(1, 5))
   implicit def arbitraryNestedList: Arbitrary[List[Any]] = Arbitrary(genList)
+
+  import scala.math.max
+  def depth(list: List[Any]): Int =
+    list match {
+      case Nil                  => 0
+      case (a :: rest) :: other => 1 + max(depth(rest), depth(other))
+      case Nil :: rest          => depth(rest)
+      case a :: rest            => max(1, depth(rest))
+    }
+
 }

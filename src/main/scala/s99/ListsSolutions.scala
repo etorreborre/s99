@@ -39,6 +39,7 @@ trait ListsSolutions {
     list match {
       case Nil                  => list
       case (a :: rest) :: other => flatten(List(a)) ::: flatten(rest) ::: flatten(other)
+      case Nil :: rest          => flatten(rest)
       case a :: rest            => a :: flatten(rest)
     }
 
