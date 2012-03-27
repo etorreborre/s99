@@ -27,55 +27,54 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
   true  false true
   false true  false
   false false false""" >>
-  {  "a" | "b" | "and(a, b)" |>
-      T  ! T   ! T           |
-      T  ! F   ! F           |
-      F  ! T   ! F           |
-      F  ! F   ! F           | { and(_, _) === _ }
+  { "a" | "b" | "and(a, b)" |>
+     T  ! T   ! T           |
+     T  ! F   ! F           |
+     F  ! T   ! F           |
+     F  ! F   ! F           | { and(_, _) === _ }
 
     "a" | "b" | "or(a, b)"  |>
-      T  ! T   ! T           |
-      T  ! F   ! T           |
-      F  ! T   ! T           |
-      F  ! F   ! F           | { or(_, _) === _ }
+     T  ! T   ! T           |
+     T  ! F   ! T           |
+     F  ! T   ! T           |
+     F  ! F   ! F           | { or(_, _) === _ }
 
     "a" | "b" | "nand(a, b)" |>
-      T  ! T   ! F            |
-      T  ! F   ! T            |
-      F  ! T   ! T            |
-      F  ! F   ! T            | { nand(_, _) === _ }
+     T  ! T   ! F            |
+     T  ! F   ! T            |
+     F  ! T   ! T            |
+     F  ! F   ! T            | { nand(_, _) === _ }
 
     "a" | "b" | "nor(a, b)" |>
-      T  ! T   ! F           |
-      T  ! F   ! F           |
-      F  ! T   ! F           |
-      F  ! F   ! T           | { nor(_, _) === _ }
+     T  ! T   ! F           |
+     T  ! F   ! F           |
+     F  ! T   ! F           |
+     F  ! F   ! T           | { nor(_, _) === _ }
 
     "a" | "b" | "xor(a, b)" |>
-      T  ! T   ! F           |
-      T  ! F   ! T           |
-      F  ! T   ! T           |
-      F  ! F   ! F           | { xor(_, _) === _ }
+     T  ! T   ! F           |
+     T  ! F   ! T           |
+     F  ! T   ! T           |
+     F  ! F   ! F           | { xor(_, _) === _ }
 
     "a" | "b" | "impl(a, b)" |>
-      T  ! T   ! T            |
-      T  ! F   ! F            |
-      F  ! T   ! T            |
-      F  ! F   ! T            | { impl(_, _) === _ }
+     T  ! T   ! T            |
+     T  ! F   ! F            |
+     F  ! T   ! T            |
+     F  ! F   ! T            | { impl(_, _) === _ }
 
     "a" | "b" | "equ(a, b)" |>
-      T  ! T   ! T           |
-      T  ! F   ! F           |
-      F  ! T   ! F           |
-      F  ! F   ! T           | { equ(_, _) === _ }
+     T  ! T   ! T           |
+     T  ! F   ! F           |
+     F  ! T   ! F           |
+     F  ! F   ! T           | { equ(_, _) === _ }
 
     table2((a: Boolean, b: Boolean) => and(a, or(a, b))) ===
-      """
-      |A     B     result
-      |true  true  true
-      |true  false true
-      |false true  false
-      |false false false""".stripMargin('|') }
+      Seq("A     B     result",
+          "true  true  true  ",
+          "true  false true  ",
+          "false true  false ",
+          "false false false ").mkString("\n") }
 
   """ Truth tables for logical expressions (2)
 
@@ -90,12 +89,11 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
   false false false
   """ >>
   { table2((a: Boolean, b: Boolean) => a and (a or not(b))) ===
-    """
-    |A     B     result
-    |true  true  true
-    |true  false true
-    |false true  false
-    |false false false""".stripMargin('|') }
+    Seq("A     B     result",
+        "true  true  true  ",
+        "true  false true  ",
+        "false true  false ",
+        "false false false ").mkString("\n") }
 
   """ Truth tables for logical expressions (3). Omitted for now""" >>
   { pending }
