@@ -1,7 +1,8 @@
 package s99
 import org.specs2.mutable._
+import org.specs2.ScalaCheck
 
-class ListsSpec extends Specification with ListsSolutions {
+class ListsSpec extends Specification with ListsSolutions with ScalaCheck with ArbitraryLists {
 
   "Find the last element of a list" >>
   { last(List(1, 1, 2, 3, 5, 8)) === 8 }
@@ -21,8 +22,9 @@ class ListsSpec extends Specification with ListsSolutions {
   "Find out whether a list is a palindrome" >>
   { isPalindrome(List(1, 2, 3, 2, 1)) must beTrue }
 
-  "Flatten a nested list structure" >>
-  { flatten(List(List(1, 1), 2, List(3, List(5, 8)))) === List(1, 1, 2, 3, 5, 8) }
+  "Flatten a nested list structure" >> check { list: List[Any] =>
+    flatten(List(List(1, 1), 2, List(3, List(5, 8)))) must not have((_:Any).isInstanceOf[List[_]])
+  }
 
   """ Eliminate consecutive duplicates of list elements
   If a list contains repeated elements they
@@ -146,4 +148,14 @@ class ListsSpec extends Specification with ListsSolutions {
      // length 2. This is the most frequent length.
      lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))) ===
        List(List('i, 'j, 'k, 'l), List('o), List('a, 'b, 'c), List('f, 'g, 'h), List('d, 'e), List('d, 'e), List('m, 'n)) }
+}
+
+import org.scalacheck.{Arbitrary, Gen}
+import org.scalacheck.Gen.{listOf, choose,lzy, frequency}
+
+trait ArbitraryLists {
+  def genAny: Gen[Any] = lzy(frequency((40, choose(1, 10)), (30, genList1), (1, genList)))
+  def genList: Gen[List[Any]] = listOf(genAny)
+  def genList1: Gen[List[Int]] = listOf(choose(1, 5))
+  implicit def arbitraryNestedList: Arbitrary[List[Any]] = Arbitrary(genList)
 }
