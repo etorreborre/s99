@@ -110,26 +110,48 @@ class ListsSpec extends Specification with ListsSolutions {
 
   "P16 Drop every Nth element from a list" >> {
     drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+    drop(3, List(1, 2)) === List(1, 2)
+    drop(1, List(4, 5, 6, 7)) === Nil
+    drop(3, Nil) === Nil
   }
 
-  "P17 Split a list into two parts.  The length of the first part is given. Use a Tuple for your result" >> {
+  "P17 Split a list into two parts. The length of the first part is given. Use a Tuple for your result" >> {
     split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) ===(List('a, 'b, 'c), List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+    split(1, List(1, 2, 3)) === (List(1), List(2, 3))
+    split(0, List('a, 'b)) === (Nil, List('a, 'b))
+    split(0, Nil) === (Nil, Nil)
   }
 
   """P18 Extract a slice from a list
   Given two indices, I and K, the slice is the list containing the elements from and including the Ith element up to
   but not including the Kth element of the original list. Start counting the elements with 0""" >> {
     slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('d, 'e, 'f, 'g)
+    slice(0, 1, List(1, 2, 3, 4)) === List(1)
+    slice(1, 1, List(1, 2, 3, 4)) === Nil
+    slice(0, 3, List('a, 'b, 'c)) === List('a, 'b, 'c)
   }
 
   "P19 Rotate a list N places to the left" >> {
     rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
     rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+    rotate(0, List(2, 3, 4, 5)) === List(2, 3, 4, 5)
+    rotate(4, List(2, 3, 4, 5)) === List(2, 3, 4, 5)
+    rotate(-4, List(2, 3, 4, 5)) === List(2, 3, 4, 5)
+    rotate(0, Nil) === Nil
+
+    // depending on the interpretation of the problem, these examples may or may not be valid
+    rotate(3, Nil) === Nil
+    rotate(7, List(2, 3, 4, 5)) === List(5, 2, 3, 4)
+    rotate(-7, List(2, 3, 4, 5)) === List(3, 4, 5, 2)
+    rotate(10, List(0, 1)) === List(0, 1)
+    rotate(11, List(0, 1)) === List(1, 0)
   }
 
   """P20 Remove the Kth element from a list
   Return the list and the removed element in a Tuple. Elements are numbered from 0""" >> {
-    removeAt(1, List('a, 'b, 'c, 'd)) ===(List('a, 'c, 'd), 'b)
+    removeAt(1, List('a, 'b, 'c, 'd)) === (List('a, 'c, 'd), 'b)
+    removeAt(0, List(1)) === (Nil, 1)
+    removeAt(2, List(1, 2, 3)) === (List(1, 2), 3)
   }
 
   "P21 Insert an element at a given position into a list" >> {
