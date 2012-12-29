@@ -212,12 +212,13 @@ class ListsSpec extends Specification with ListsSolutions {
   """P26 Generate the combinations of K distinct objects chosen from the N elements of a list
   In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are
   C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficient). For pure mathematicians, this
-  result may be great But we want to really generate all the possibilities""" >> {
+  result may be great. But we want to really generate all the possibilities""" >> {
     combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)) must contain(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e))
     combinations(0, List(1, 2, 3)) === List(Nil)
-    combinations(1, List(1, 2, 3)) === List(List(1), List(2), List(3))
-    combinations(2, List(1, 2, 3)) === List(List(1, 2), List(1, 3), List(2, 3))
+    combinations(1, List(1, 2, 3)).toSet === Set(List(1), List(2), List(3))
+    combinations(2, List(1, 2, 3)).toSet === Set(List(1, 2), List(1, 3), List(2, 3))
     combinations(3, List(1, 2, 3)) === List(List(1, 2, 3))
+    combinations(4, List(1, 2, 3)) === Nil
   }
 
   """P27 Group the elements of a set into disjoint subsets
