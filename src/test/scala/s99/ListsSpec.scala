@@ -156,28 +156,57 @@ class ListsSpec extends Specification with ListsSolutions {
 
   "P21 Insert an element at a given position into a list" >> {
     insertAt('new, 1, List('a, 'b, 'c, 'd)) === List('a, 'new, 'b, 'c, 'd)
+    insertAt(1, 0, Nil) === List(1)
+    insertAt(3, 2, List(1, 2)) === List(1, 2, 3)
   }
 
   "P22 Create a list containing all integers within a given range" >> {
     range(4, 9) === List(4, 5, 6, 7, 8, 9)
+    range(0, 0) === List(0)
+    range(2, 1) === Nil
   }
 
   "P23 Extract a given number of randomly selected elements from a list. Hint: Use the solution to problem P20" >> {
-    val selected = randomSelect(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h))
-    selected.size === 3
-    selected.distinct.size === selected.size
+    randomSelect(0, List(1, 2, 3)) === Nil
+
+    (1 to 100).map { _ =>
+      val selected = randomSelect(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h))
+      selected.size === 3
+      selected.distinct.size === selected.size
+      List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h) must containAllOf(selected)
+    }
+
+    // with true randomness, this example has 10 * (1/10) ^ 100 = 1e-99 probability of
+    // yielding a false negative. Comment this if you don't want even the small chance
+    // of a test failing when the code is correct
+    (1 to 100).map { _ => randomSelect(1, (1 to 10).toList).head }.toSet.size !== 1
   }
 
   "P24 Lotto: Draw N different random numbers from the set 1..M" >> {
-    val selected = lotto(6, 49)
-    selected.size === 6
-    ((_: Int) must be_<=(49)).forall(selected)
+    for(_ <- 1 to 100) {
+      val selected = lotto(6, 49)
+      selected.size === 6
+      ((_: Int) must beBetween(1, 49)).forall(selected)
+    }
+
+    // with true randomness, this example has 10 * (1/10) ^ 100 = 1e-99 probability of
+    // yielding a false negative. Comment this if you don't want even the small chance
+    // of a test failing when the code is correct
+    (1 to 100).map { _ => lotto(1, 10).head }.toSet.size !== 1
   }
 
   "P25 Generate a random permutation of the elements of a list. Hint: Use the solution of problem P23" >> {
-    val permute = randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
-    permute.size === 6
-    permute.distinct.size === permute.size
+    for(_ <- 1 to 100) {
+      val permute = randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
+      permute.size === 6
+      permute.distinct.size === permute.size
+      List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h) must containAllOf(permute)
+    }
+
+    // with true randomness, this example has 6 * (1/6) ^ 100 = 9.18e-78 probability of
+    // yielding a false negative. Comment this if you don't want even the small chance
+    // of a test failing when the code is correct
+    (1 to 100).map { _ => randomPermute(List(1, 2, 3)) }.toSet.size !== 1
   }
 
   """P26 Generate the combinations of K distinct objects chosen from the N elements of a list
@@ -185,6 +214,10 @@ class ListsSpec extends Specification with ListsSolutions {
   C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficient). For pure mathematicians, this
   result may be great But we want to really generate all the possibilities""" >> {
     combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)) must contain(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e))
+    combinations(0, List(1, 2, 3)) === List(Nil)
+    combinations(1, List(1, 2, 3)) === List(List(1), List(2), List(3))
+    combinations(2, List(1, 2, 3)) === List(List(1, 2), List(1, 3), List(2, 3))
+    combinations(3, List(1, 2, 3)) === List(List(1, 2, 3))
   }
 
   """P27 Group the elements of a set into disjoint subsets
@@ -199,14 +232,20 @@ class ListsSpec extends Specification with ListsSolutions {
 
   You may find more about this combinatorial problem in a good book on discrete mathematics under the term
   "multinomial coefficients" """ >> {
-    groups(List(1, 1), List("Aldo", "Beat")) must contain(
-      List(List("Aldo"), List("Beat")))
-
     group3(List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) must contain(
       List(List("Aldo", "Beat"), List("Carla", "David", "Evi"), List("Flip", "Gary", "Hugo", "Ida")))
 
+    groups(List(1, 1), List("Aldo", "Beat")) must haveTheSameElementsAs(List(
+      List(List("Aldo"), List("Beat")),
+      List(List("Beat"), List("Aldo"))
+    ))
+
     groups(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) must contain(
       List(List("Aldo", "Beat"), List("Carla", "David"), List("Evi", "Flip", "Gary", "Hugo", "Ida")))
+
+    groups(List(3), List(1, 2, 3)) === List(List(List(1, 2, 3)))
+    groups(List(0), Nil) === List(List(Nil))
+    groups(Nil, Nil) === List(Nil)
   }
 
   """P28 Sorting a list of lists according to length of sublists
@@ -218,10 +257,20 @@ class ListsSpec extends Specification with ListsSolutions {
     lsort(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))) ===
       List(List('o), List('d, 'e), List('d, 'e), List('m, 'n), List('a, 'b, 'c), List('f, 'g, 'h), List('i, 'j, 'k, 'l))
 
+    lsort(Nil) === Nil
+    lsort(List(Nil)) === List(Nil)
+    lsort(List(List(1, 2, 3), List(1), Nil, List(1, 2))) ===
+      List(Nil, List(1), List(1, 2), List(1, 2, 3))
+
     // Note that in this example, the first two lists in the result have length 4 and 1 and both lengths appear just once.
     // The third and fourth lists have length 3 and there are two list of this length. Finally, the last three lists have
     // length 2. This is the most frequent length.
     lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))) ===
       List(List('i, 'j, 'k, 'l), List('o), List('a, 'b, 'c), List('f, 'g, 'h), List('d, 'e), List('d, 'e), List('m, 'n))
+
+    lsortFreq(Nil) === Nil
+    lsortFreq(List(Nil)) === List(Nil)
+    lsortFreq(List(Nil, List(1), List(1, 2), Nil, List(2), List(1, 2, 3), Nil, List(1, 3), List(3), Nil)) ===
+      List(List(1, 2, 3), List(1, 2), List(1, 3), List(1), List(2), List(3), Nil, Nil, Nil, Nil)
   }
 }
