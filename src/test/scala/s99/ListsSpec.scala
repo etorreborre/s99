@@ -169,7 +169,7 @@ class ListsSpec extends Specification with ListsSolutions {
   "P23 Extract a given number of randomly selected elements from a list. Hint: Use the solution to problem P20" >> {
     randomSelect(0, List(1, 2, 3)) === Nil
 
-    (1 to 100).map { _ =>
+    for(_ <- 1 to 100) {
       val selected = randomSelect(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h))
       selected.size === 3
       selected.distinct.size === selected.size
@@ -213,11 +213,13 @@ class ListsSpec extends Specification with ListsSolutions {
   In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are
   C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficient). For pure mathematicians, this
   result may be great. But we want to really generate all the possibilities""" >> {
-    combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)) must contain(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e))
+    combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)).map(_.toSet) must
+      contain(Set('a, 'b, 'c), Set('a, 'b, 'd), Set('a, 'b, 'e))
+
     combinations(0, List(1, 2, 3)) === List(Nil)
-    combinations(1, List(1, 2, 3)).toSet === Set(List(1), List(2), List(3))
-    combinations(2, List(1, 2, 3)).toSet === Set(List(1, 2), List(1, 3), List(2, 3))
-    combinations(3, List(1, 2, 3)) === List(List(1, 2, 3))
+    combinations(1, List(1, 2, 3)).map(_.toSet).toSet === Set(Set(1), Set(2), Set(3))
+    combinations(2, List(1, 2, 3)).map(_.toSet).toSet === Set(Set(1, 2), Set(1, 3), Set(2, 3))
+    combinations(3, List(1, 2, 3)).map(_.toSet).toSet === Set(Set(1, 2, 3))
     combinations(4, List(1, 2, 3)) === Nil
   }
 
@@ -233,18 +235,21 @@ class ListsSpec extends Specification with ListsSolutions {
 
   You may find more about this combinatorial problem in a good book on discrete mathematics under the term
   "multinomial coefficients" """ >> {
-    group3(List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) must contain(
-      List(List("Aldo", "Beat"), List("Carla", "David", "Evi"), List("Flip", "Gary", "Hugo", "Ida")))
+    group3(List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")).map(_.map(_.toSet)) must
+      contain(List(Set("Aldo", "Beat"), Set("Carla", "David", "Evi"), Set("Flip", "Gary", "Hugo", "Ida")))
 
-    groups(List(1, 1), List("Aldo", "Beat")) must haveTheSameElementsAs(List(
+    groups(List(1, 1), List("Aldo", "Beat")).toSet === Set(
       List(List("Aldo"), List("Beat")),
       List(List("Beat"), List("Aldo"))
-    ))
+    )
 
-    groups(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) must contain(
-      List(List("Aldo", "Beat"), List("Carla", "David"), List("Evi", "Flip", "Gary", "Hugo", "Ida")))
+    groups(List(2, 3, 4), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")).map(_.map(_.toSet)) must
+      contain(List(Set("Aldo", "Beat"), Set("Carla", "David", "Evi"), Set("Flip", "Gary", "Hugo", "Ida")))
 
-    groups(List(3), List(1, 2, 3)) === List(List(List(1, 2, 3)))
+    groups(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")).map(_.map(_.toSet)) must
+      contain(List(Set("Aldo", "Beat"), Set("Carla", "David"), Set("Evi", "Flip", "Gary", "Hugo", "Ida")))
+
+    groups(List(3), List(1, 2, 3)).map(_.map(_.toSet)) === List(List(Set(1, 2, 3)))
     groups(List(0), Nil) === List(List(Nil))
     groups(Nil, Nil) === List(Nil)
   }
@@ -255,8 +260,13 @@ class ListsSpec extends Specification with ListsSolutions {
     b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is
        to sort the elements according to their length frequency; i.e. in the default, sorting is done ascendingly,
        lists with rare lengths are placed, others with a more frequent length come later""" >> {
-    lsort(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))) ===
-      List(List('o), List('d, 'e), List('d, 'e), List('m, 'n), List('a, 'b, 'c), List('f, 'g, 'h), List('i, 'j, 'k, 'l))
+    val sorted = lsort(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e),
+      List('i, 'j, 'k, 'l), List('m, 'n), List('o)))
+
+    sorted(0) === List('o)
+    sorted.slice(1, 4).toSet === Set(List('d, 'e), List('d, 'e), List('m, 'n))
+    sorted.slice(4, 6).toSet === Set(List('a, 'b, 'c), List('f, 'g, 'h))
+    sorted(6) === List('i, 'j, 'k, 'l)
 
     lsort(Nil) === Nil
     lsort(List(Nil)) === List(Nil)
@@ -266,12 +276,16 @@ class ListsSpec extends Specification with ListsSolutions {
     // Note that in this example, the first two lists in the result have length 4 and 1 and both lengths appear just once.
     // The third and fourth lists have length 3 and there are two list of this length. Finally, the last three lists have
     // length 2. This is the most frequent length.
-    lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))) ===
-      List(List('i, 'j, 'k, 'l), List('o), List('a, 'b, 'c), List('f, 'g, 'h), List('d, 'e), List('d, 'e), List('m, 'n))
+    val sortedFreq = lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e),
+      List('i, 'j, 'k, 'l), List('m, 'n), List('o)))
+
+    sortedFreq.slice(0, 2).toSet === Set(List('i, 'j, 'k, 'l), List('o))
+    sortedFreq.slice(2, 4).toSet === Set(List('a, 'b, 'c), List('f, 'g, 'h))
+    sortedFreq.slice(4, 7).toSet === Set(List('d, 'e), List('d, 'e), List('m, 'n))
 
     lsortFreq(Nil) === Nil
     lsortFreq(List(Nil)) === List(Nil)
-    lsortFreq(List(Nil, List(1), List(1, 2), Nil, List(2), List(1, 2, 3), Nil, List(1, 3), List(3), Nil)) ===
-      List(List(1, 2, 3), List(1, 2), List(1, 3), List(1), List(2), List(3), Nil, Nil, Nil, Nil)
+    lsortFreq(List(Nil, List(1), List(1, 1), Nil, List(1), List(1, 1, 1), Nil, List(1, 1), List(1), Nil)) ===
+      List(List(1, 1, 1), List(1, 1), List(1, 1), List(1), List(1), List(1), Nil, Nil, Nil, Nil)
   }
 }
