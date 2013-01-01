@@ -6,8 +6,8 @@ import org.specs2.matcher._
 class ArithmeticSpec extends Specification with ArithmeticSolutions {
 
   "P31 Determine whether a given integer number is prime" >> {
-    foreach(Seq(7, 13, 19)) { _ must bePrime }
-    foreach(Seq(1, 4, 9, 51)) { _ must not(bePrime) }
+    foreach(Seq(2, 3, 7, 13, 19)) { _ must bePrime }
+    foreach(Seq(1, 4, 9, 25, 51)) { _ must not(bePrime) }
   }
 
   "P32 Determine the greatest common divisor of two positive integer numbers. Use Euclid's algorithm" >> {
@@ -69,8 +69,8 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
 
   """P38 Compare the two methods of calculating Euler's totient function
   Use the solutions of problems P34 and P37 to compare the algorithms. Try to calculate phi(10090) as an example""" >> {
-    val (r1, t1) = withTime(10090.totient)
-    val (r2, t2) = withTime(10090.improvedTotient)
+    val (r1, t1) = withTimeRepeated(100)(10090.totient)
+    val (r2, t2) = withTimeRepeated(100)(10090.improvedTotient)
     r1 === r2
     t1 must be_>(t2)
   }
@@ -87,8 +87,11 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
   E.g. 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the
   general case. It has been numerically confirmed up to very large numbers (much larger than Scala's Int can represent).
   Write a function to find the two prime numbers that sum up to a given even integer""" >> {
-    28.goldbach must beOneOf((5, 23), (11, 17))
-    74.goldbach must beOneOf((3, 71), (7, 67), (13, 61), (31, 43))
+    // Note: these tests consider that the function must return the Goldbach pair which contains the minimum element
+    // (although more than one valid pair can exist). This restriction is enforced because the result of this function
+    // strongly affects the expected results of P41 and it complies with the examples in the original problem statement.
+    28.goldbach === (5, 23)
+    74.goldbach === (3, 71)
     4.goldbach === (2, 2)
   }
 
@@ -99,25 +102,33 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
   range 2..3000""" >> {
     printGoldbachList(9 to 20) === List(
       "10 = 3 + 7",
-      "12 = 1 + 11",
-      "14 = 1 + 13",
+      "12 = 5 + 7",
+      "14 = 3 + 11",
       "16 = 3 + 13",
-      "18 = 1 + 17",
-      "20 = 1 + 19")
+      "18 = 5 + 13",
+      "20 = 3 + 17")
+
+    printGoldbachList(9 to 20 by 2) === Nil
+
+    printGoldbachList(9 to 20 by 3) === List(
+      "12 = 5 + 7",
+      "18 = 5 + 13")
 
     printGoldbachList(3 to 3) === Nil
 
     printGoldbachListLimited(9 to 20, 1) === List(
       "10 = 3 + 7",
-      "12 = 1 + 11",
-      "14 = 1 + 13",
+      "12 = 5 + 7",
+      "14 = 3 + 11",
       "16 = 3 + 13",
-      "18 = 1 + 17",
-      "20 = 1 + 19")
+      "18 = 5 + 13",
+      "20 = 3 + 17")
 
-    printGoldbachListLimited(9 to 20, 2) === List(
-      "10 = 3 + 7",
-      "16 = 3 + 13")
+    printGoldbachListLimited(9 to 20, 3) === List(
+      "12 = 5 + 7",
+      "18 = 5 + 13")
+
+    printGoldbachListLimited(9 to 20, 5) === Nil
 
     printGoldbachListLimited(1 to 2000, 50) === List(
       "992 = 73 + 919",
@@ -136,5 +147,10 @@ class ArithmeticSpec extends Specification with ArithmeticSolutions {
   def withTime[T](t: => T): (T, Long) = {
     val start = System.currentTimeMillis()
     (t, System.currentTimeMillis() - start)
+  }
+
+  def withTimeRepeated[T](times: Int)(t: => T): (T, Long) = {
+    val start = System.currentTimeMillis()
+    ((1 to times).map(_ => t).head, System.currentTimeMillis() - start)
   }
 }
