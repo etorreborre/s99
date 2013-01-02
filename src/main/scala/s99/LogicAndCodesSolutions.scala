@@ -7,7 +7,7 @@ trait LogicAndCodesSolutions { outer =>
   implicit def extendBoolean(a: Boolean): ExtendedBoolean = ExtendedBoolean(a)
   case class ExtendedBoolean(a: Boolean) {
     def and (b: =>Boolean): Boolean = outer.and (a, b)
-    def or  (b: =>Boolean): Boolean = outer.or  (a, b) 
+    def or  (b: =>Boolean): Boolean = outer.or  (a, b)
     def nand(b: =>Boolean): Boolean = outer.nand(a, b)
     def nor (b: =>Boolean): Boolean = outer.nor (a, b)
     def xor (b: =>Boolean): Boolean = outer.xor (a, b)
@@ -23,8 +23,8 @@ trait LogicAndCodesSolutions { outer =>
   def xor(a: Boolean,  b: =>Boolean): Boolean = ???
   def impl(a: Boolean,  b: =>Boolean): Boolean = ???
   def equ(a: Boolean,  b: =>Boolean): Boolean = ???
-  def not(a: Boolean) = ???
-  
+  def not(a: Boolean): Boolean = ???
+
   def table2(f: (Boolean, Boolean) => Boolean): String = ???
 
   def gray(n: Int): List[String] = ???
