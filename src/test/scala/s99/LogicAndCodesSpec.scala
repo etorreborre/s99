@@ -1,9 +1,8 @@
 package s99
 
 import org.specs2.mutable.Specification
-import org.specs2.matcher.DataTables
+import org.specs2.matcher._
 import org.specs2.execute.Result
-
 
 class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with DataTables {
   """P46 Truth tables for logical expressions
@@ -14,49 +13,16 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
   A logical expression in two variables can then be written as an function of two variables, e.g:
   (a: Boolean, b: Boolean) => and(or(a, b), nand(a, b))
 
-  Now, write a function called table2 which prints the truth table of a given logical expression in two variables.""" >> {
+  Now, write a function called table2 which prints the truth table of a given logical expression in two variables.""" should {
 
-    "a" | "b" | "and(a, b)" |>
-     T  ! T   ! T           |
-     T  ! F   ! F           |
-     F  ! T   ! F           |
-     F  ! F   ! F           | { and(_, _) === _ }
-
-    "a" | "b" | "or(a, b)"  |>
-     T  ! T   ! T           |
-     T  ! F   ! T           |
-     F  ! T   ! T           |
-     F  ! F   ! F           | { or(_, _) === _ }
-
-    "a" | "b" | "nand(a, b)" |>
-     T  ! T   ! F            |
-     T  ! F   ! T            |
-     F  ! T   ! T            |
-     F  ! F   ! T            | { nand(_, _) === _ }
-
-    "a" | "b" | "nor(a, b)" |>
-     T  ! T   ! F           |
-     T  ! F   ! F           |
-     F  ! T   ! F           |
-     F  ! F   ! T           | { nor(_, _) === _ }
-
-    "a" | "b" | "xor(a, b)" |>
-     T  ! T   ! F           |
-     T  ! F   ! T           |
-     F  ! T   ! T           |
-     F  ! F   ! F           | { xor(_, _) === _ }
-
-    "a" | "b" | "impl(a, b)" |>
-     T  ! T   ! T            |
-     T  ! F   ! F            |
-     F  ! T   ! T            |
-     F  ! F   ! T            | { impl(_, _) === _ }
-
-    "a" | "b" | "equ(a, b)" |>
-     T  ! T   ! T           |
-     T  ! F   ! F           |
-     F  ! T   ! F           |
-     F  ! F   ! T           | { equ(_, _) === _ }
+    //           haveTruthTable(TT, TF, FT, FF)
+    (and _) must haveTruthTable(true, false, false, false)
+    (or _) must haveTruthTable(true, true, true, false)
+    (nand _) must haveTruthTable(false, true, true, true)
+    (nor _) must haveTruthTable(false, false, false, true)
+    (xor _) must haveTruthTable(false, true, true, false)
+    (impl _) must haveTruthTable(true, false, true, true)
+    (equ _) must haveTruthTable(true, false, false, true)
 
     table2((a: Boolean, b: Boolean) => and(a, or(a, b))) ===
       Seq("A     B     result",
@@ -78,11 +44,8 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
   Continue problem P46 by redefining and, or, etc as operators. (i.e. make them methods of a new class with an
   implicit conversion from Boolean). not will have to be left as a object method.""" >> {
 
-    "a" | "not(a)" |>
-     T  ! T        |
-     T  ! F        |
-     F  ! T        |
-     F  ! F        | { not(_) === _ }
+    not(true) must beFalse
+    not(false) must beTrue
 
     table2((a: Boolean, b: Boolean) => a and (a or not(b))) ===
       Seq("A     B     result",
@@ -132,14 +95,20 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
       List(("a", "0"), ("b", "101"), ("c", "100"), ("d", "111"), ("e", "1101"), ("f", "1100"))
 
     huffman(List(("a", 1), ("b", 2))) === List(("a", "0"), ("b", "1"))
-    huffman(List(("a", 2), ("b", 1))) === List(("b", "0"), ("a", "1"))
+    huffman(List(("a", 2), ("b", 1))) === List(("a", "1"), ("b", "0"))
 
     huffman(List(("a", 24), ("b", 12), ("c", 10), ("d", 8), ("e", 7))) ===
       List(("a", "0"), ("b", "111"), ("c", "110"), ("d", "101"), ("e", "100"))
   }
 
-  val T = true
-  val F = false
+  case class TruthTableMatcher(expected: Seq[Boolean]) extends Matcher[(Boolean, => Boolean) => Boolean] {
+    type BinaryBoolFunc = (Boolean, => Boolean) => Boolean
+    val domain = Seq((true, true), (true, false), (false, true), (false, false))
+
+    def apply[S <: BinaryBoolFunc](actual: Expectable[S]) =
+      result(domain.map(p => actual.value(p._1, p._2)) === expected, actual)
+  }
+  def haveTruthTable(vals: Boolean*) = TruthTableMatcher(vals)
 
   // this specs2 implicit method is deactivated to allow the local definition of Boolean operators
   override def toResult(b: Boolean): Result = super.toResult(b)
