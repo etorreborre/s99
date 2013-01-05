@@ -5,8 +5,14 @@ import Solutions.???
 trait BinaryTreesSolutions {
 
   sealed abstract class Tree[+T] {
-    def addValue[S >: T](s: S): Tree[S] = ???
     def isSymmetric: Boolean = ???
+    def addValue[S >: T <% Ordered[S]](s: S): Tree[S] = ???
+
+    def leafCount: Int = ???
+    def leafList: List[T] = ???
+    def internalList: List[T] = ???
+    def atLevel(n: Int): List[T] = ???
+
     def preOrder: List[T] = ???
     def inOrder: List[T] = ???
     def toDotString: String = ???
@@ -15,10 +21,6 @@ trait BinaryTreesSolutions {
   case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {
     override def toString = "T(" + value.toString + " " + left.toString + " " + right.toString + ")"
 
-    def leafCount: Int = ???
-    def leafList: List[T] = ???
-    def internalList: List[T] = ???
-    def atLevel(n: Int): List[T] = ???
     def layoutBinaryTree: PositionedNode[T] = ???
     def layoutBinaryTree2: PositionedNode[T] = ???
     def layoutBinaryTree3: PositionedNode[T] = ???
@@ -36,15 +38,15 @@ trait BinaryTreesSolutions {
 
   object Tree {
 
-    def cBalanced(n: Int,  s: String): List[Node[String]] = ???
-    def fromList(list: List[Int]): Tree[Int] = ???
-    def symmetricBalancedTrees(n: Int,  s: String): List[Node[String]] = ???
-    def hbalTrees(n: Int,  s: String): List[Node[String]] = ???
+    def cBalanced[T](n: Int, e: T): List[Tree[T]] = ???
+    def fromList[T <% Ordered[T]](list: List[T]): Tree[T] = ???
+    def symmetricBalancedTrees[T](n: Int, e: T): List[Tree[T]] = ???
+    def hbalTrees[T](h: Int, e: T): List[Tree[T]] = ???
 
-    def minHbalNodes(n: Int): Int = ???
+    def minHbalNodes(h: Int): Int = ???
     def maxHbalHeight(n: Int): Int = ???
-    def hbalTreesWithNodes(n: Int,  s: String): List[Node[String]] = ???
-    def completeBinaryTree(n: Int,  s: String): List[Node[String]] = ???
+    def hbalTreesWithNodes[T](n: Int, e: T): List[Tree[T]] = ???
+    def completeBinaryTree[T](n: Int, e: T): List[Tree[T]] = ???
 
     def fromString(string: String): Node[Char] = ???
     def fromDotString(string: String): Node[Char] = ???
