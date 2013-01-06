@@ -38,16 +38,16 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   Define an object named Tree. Write a function Tree.cBalanced to construct completely balanced binary trees for a
   given number of nodes. The function should generate all solutions. The function should take as parameters the number
   of nodes and a single value to put in all of them""" >> {
+    Tree.cBalanced(0, 0) === List(End)
+    Tree.cBalanced(1, 0) === List(Node(0))
     Tree.cBalanced(4, "x").toSet === Set(
       Node("x", Node("x", End, End), Node("x", Node("x"), End)),
       Node("x", Node("x", End, End), Node("x", End, Node("x"))),
       Node("x", Node("x", Node("x"), End), Node("x", End, End)),
       Node("x", Node("x", End, Node("x")), Node("x", End, End))
     )
-    Tree.cBalanced(0, 0) === List(End)
-    Tree.cBalanced(1, 0) === List(Node(0))
-    Tree.cBalanced(10, 'a).length === 56
-    Tree.cBalanced(11, 'a).length === 70
+    Tree.cBalanced(10, 'a).length === 32
+    Tree.cBalanced(11, 'a).length === 16
   }
 
   """P56 Symmetric binary trees
@@ -56,9 +56,9 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   is the mirror image of the left subtree. Add an isSymmetric method to the Tree class to check whether a given binary
   tree is symmetric. Hint: Write an isMirrorOf method first to check whether one tree is the mirror image of another.
   We are only interested in the structure, not in the contents of the nodes""" >> {
-    Node('a', Node('b'), Node('c')).isSymmetric must beTrue
     End.isSymmetric must beTrue
     Node(0).isSymmetric must beTrue
+    Node('a', Node('b'), Node('c')).isSymmetric must beTrue
     Node('a', Node('b', Node('x'), End), Node('c', End, Node('x'))).isSymmetric must beTrue
     Node(0, Node(1), End).isSymmetric must beFalse
     Node('a', Node('b', End, Node('x')), Node('c', End, Node('x'))).isSymmetric must beFalse
@@ -88,11 +88,11 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
 
   Apply the generate-and-test paradigm to construct all symmetric, completely balanced
   binary trees with a given number of nodes""" >> {
+    Tree.symmetricBalancedTrees(0, 0) === List(End)
+    Tree.symmetricBalancedTrees(2, 0) === Nil
     Tree.symmetricBalancedTrees(5, "x").toString ===
       "List(T(x T(x . T(x . .)) T(x T(x . .) .)), T(x T(x T(x . .) .) T(x . T(x . .))))"
-    Tree.symmetricBalancedTrees(0, 0) === List(End)
-    Tree.symmetricBalancedTrees(2, 0).toString === Nil
-    Tree.symmetricBalancedTrees(11, 'a).length === 6
+    Tree.symmetricBalancedTrees(11, 'a).length === 4
   }
 
   """P59 Construct height-balanced binary trees
@@ -101,13 +101,13 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   node: The height of its left subtree and the height of its right subtree are almost equal, which means their
   difference is not greater than one. Write a method `Tree.hbalTrees` to construct height-balanced binary trees for a
   given height with a supplied value for the nodes. The function should generate all solutions""" >> {
+    Tree.hbalTrees(0, 0) === List(End)
+    Tree.hbalTrees(1, 'a) === List(Node('a))
     Tree.hbalTrees(3, "x").map(_.toString) must contain(
       "T(x T(x T(x . .) T(x . .)) T(x T(x . .) T(x . .)))",
       "T(x T(x T(x . .) T(x . .)) T(x T(x . .) .))",
       "T(x T(x T(x . .) .) T(x . .))"
     )
-    Tree.hbalTrees(0, 0) === List(End)
-    Tree.hbalTrees(1, 'a) === List(Node('a))
   }
 
   """P60 Construct height-balanced binary trees with a given number of nodes
@@ -132,35 +132,35 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   """P61 Count the leaves of a binary tree
 
   A leaf is a node with no successors. Write a method leafCount to count them""" >> {
-    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafCount === 3
-    Node('x', Node('y'), End).leafCount === 1
     End.leafCount === 0
     Node('a).leafCount === 1
+    Node('x', Node('y'), End).leafCount === 1
     Node(0, Node(1, Node(2), End), End).leafCount === 1
     Node(0, Node(1, Node(2), End), Node(3)).leafCount === 2
+    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafCount === 3
   }
 
   """P61A Collect the leaves of a binary tree in a list
 
   A leaf is a node with no successors. Write a method leafList to collect them in a list""" >> {
-    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafList === List('b', 'd', 'e')
-    Node('x', Node('y'), End).leafCount === List(Node('y'))
     End.leafList === Nil
     Node('a).leafList === List('a)
+    Node('x', Node('y'), End).leafList === List('y')
     Node(0, Node(1, Node(2), End), End).leafList === List(2)
     Node(0, Node(1, Node(2), End), Node(3)).leafList.toSet === Set(2, 3)
+    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafList === List('b', 'd', 'e')
   }
 
   """P62 Collect the internal nodes of a binary tree in a list
 
   An internal node of a binary tree has either one or two
   non-empty successors. Write a method internalList to collect them in a list""" >> {
+    End.internalList === Nil
+    Node('a).internalList === Nil
+    Node('x', Node('y'), End).internalList === List('x')
+    Node(0, Node(1, Node(2), End), End).internalList.toSet === Set(0, 1)
+    Node(0, Node(1, Node(2), End), Node(3)).internalList.toSet === Set(0, 1)
     Node('a', Node('b'), Node('c', Node('d'), Node('e'))).internalList === List('a', 'c')
-    Node('x', Node('x'), End).leafCount === List(Node('x'))
-    End.leafList === Nil
-    Node('a).leafList === Nil
-    Node(0, Node(1, Node(2), End), End).leafList.toSet === Set(0, 1)
-    Node(0, Node(1, Node(2), End), Node(3)).leafList.toSet === Set(0, 1)
   }
 
   """P62B Collect the nodes at a given level in a list
@@ -169,12 +169,12 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   level 1. Write a method atLevel to collect all nodes at a given level in a list.
   Using `atLevel` it is easy to construct a method levelOrder which creates the level-order sequence of the nodes.
   However, there are more efficient ways to do that""" >> {
-    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).atLevel(2) === List('b', 'c')
-    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).atLevel(1) === List('a')
-    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).atLevel(4) === Nil
     End.atLevel(1) === Nil
     End.atLevel(5) === Nil
     Node('a).atLevel(1) === List('a)
+    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).atLevel(2) === List('b', 'c')
+    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).atLevel(1) === List('a')
+    Node('a', Node('b'), Node('c', Node('d'), Node('e'))).atLevel(4) === Nil
   }
 
   """P63 Construct a complete binary tree
@@ -191,9 +191,9 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   property holds: The address of X's left and right successors are 2*A and 2*A+1, respectively, supposed the successors
   do exist. This fact can be used to elegantly construct a complete binary tree structure. Write a method
   completeBinaryTree` that takes as parameters the number of nodes and the value to put in each node""" >> {
-    Tree.completeBinaryTree(6, "x").toString === "T(x T(x T(x . .) T(x . .)) T(x T(x . .) .))"
     Tree.completeBinaryTree(0, 0) === End
     Tree.completeBinaryTree(1, 0).toString === "T(0 . .)"
+    Tree.completeBinaryTree(6, "x").toString === "T(x T(x T(x . .) T(x . .)) T(x T(x . .) .))"
   }
 
   """P64 Layout a binary tree (1)
