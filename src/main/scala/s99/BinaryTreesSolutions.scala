@@ -46,7 +46,7 @@ trait BinaryTreesSolutions {
     def minHbalNodes(h: Int): Int = ???
     def maxHbalHeight(n: Int): Int = ???
     def hbalTreesWithNodes[T](n: Int, e: T): List[Tree[T]] = ???
-    def completeBinaryTree[T](n: Int, e: T): List[Tree[T]] = ???
+    def completeBinaryTree[T](n: Int, e: T): Tree[T] = ???
 
     def fromString(string: String): Node[Char] = ???
     def fromDotString(string: String): Node[Char] = ???
