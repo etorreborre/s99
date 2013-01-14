@@ -13,6 +13,10 @@ trait BinaryTreesSolutions {
     def internalList: List[T] = ???
     def atLevel(n: Int): List[T] = ???
 
+    def layoutBinaryTree: Tree[T] = ???
+    def layoutBinaryTree2: Tree[T] = ???
+    def layoutBinaryTree3: Tree[T] = ???
+
     def preOrder: List[T] = ???
     def inOrder: List[T] = ???
     def toDotString: String = ???
@@ -20,10 +24,6 @@ trait BinaryTreesSolutions {
 
   case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {
     override def toString = "T(" + value.toString + " " + left.toString + " " + right.toString + ")"
-
-    def layoutBinaryTree: PositionedNode[T] = ???
-    def layoutBinaryTree2: PositionedNode[T] = ???
-    def layoutBinaryTree3: PositionedNode[T] = ???
 
     def show: String = ???
   }

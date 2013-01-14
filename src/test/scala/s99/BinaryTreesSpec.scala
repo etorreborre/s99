@@ -217,8 +217,17 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   Write a method layoutBinaryTree that turns a tree of normal Nodes into a tree of PositionedNodes
 
   The tree at right may be constructed with `Tree.fromList(List('n','k','m','c','a','h','g','e','u','p','s','q'))`.
-  Use it to check your code""" >>
-  { Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree.toString === "T[3,1](a T[1,2](b . T[2,3](c . .)) T[4,2](d . .))" }
+  Use it to check your code""" >> {
+    Node(0).layoutBinaryTree.toString === "T[1,1](0 . .)"
+    Node(0, Node(1), End).layoutBinaryTree.toString === "T[2,1](0 T[1,2](1 . .) .)"
+    Node(0, End, Node(1)).layoutBinaryTree.toString === "T[1,1](0 . T[2,2](1 . .))"
+    Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree.toString ===
+      "T[3,1](a T[1,2](b . T[2,3](c . .)) T[4,2](d . .))"
+    Node(0, Node(1, Node(2, Node(3), End), End), End).layoutBinaryTree.toString ===
+      "T[4,1](0 T[3,2](1 T[2,3](2 T[1,4](3 . .) .) .) .)"
+    Node('a', Node('b', End, Node('c', End, Node('d'))), Node('e', Node('f'), End)).layoutBinaryTree.toString ===
+      "T[4,1](a T[1,2](b . T[2,3](c . T[3,4](d . .))) T[6,2](e T[5,3](f . .) .))"
+  }
 
   """P65 Layout a binary tree (2)
 
@@ -227,9 +236,21 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   conventions as in problem P64
 
   The tree at right may be constructed with `Tree.fromList(List('n','k','m','c','a','e','d','g','u','p','q'))`.
-  Use it to check your code""" >>
-  { Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree2.toString ===
-      "T[3,1]('a T[1,2]('b . T[2,3]('c . .)) T[5,2]('d . .))" }
+  Use it to check your code""" >> {
+    // Note: these test cases may give more hints on the rules of this layout. Don't read them if you
+    // want to figure them out on your own
+    Node(0).layoutBinaryTree2.toString === "T[1,1](0 . .)"
+    Node(0, Node(1), End).layoutBinaryTree2.toString === "T[2,1](0 T[1,2](1 . .) .)"
+    Node(0, End, Node(1)).layoutBinaryTree2.toString === "T[1,1](0 . T[2,2](1 . .))"
+    Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree2.toString ===
+      "T[3,1](a T[1,2](b . T[2,3](c . .)) T[5,2](d . .))"
+    Node(0, Node(1, Node(2, Node(3), End), End), End).layoutBinaryTree2.toString ===
+      "T[8,1](0 T[4,2](1 T[2,3](2 T[1,4](3 . .) .) .) .)"
+    Node(0, Node(1, Node(2, Node(3), Node(4, Node(5), Node(6))), End), End).layoutBinaryTree2.toString ===
+      "T[15,1](0 T[7,2](1 T[3,3](2 T[1,4](3 . .) T[5,4](4 T[4,5](5 . .) T[6,5](6 . .))) .) .)"
+    Node('a', Node('b', End, Node('c', End, Node('d'))), Node('e', Node('f'), End)).layoutBinaryTree2.toString ===
+      "T[5,1](a T[1,2](b . T[3,3](c . T[4,4](d . .))) T[9,2](e T[7,3](f . .) .))"
+  }
 
   """P66 Layout a binary tree (3)
 
@@ -239,9 +260,24 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   subtrees to construct the combined binary tree? Use the same conventions as in problem P64 and P65.
   Note: This is a difficult problem. Don't give up too early!
 
-  Which layout do you like most?""" >>
-  { Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree3.toString ===
-      "T[2,1]('a T[1,2]('b . T[2,3]('c . .)) T[3,2]('d . .))" }
+  Which layout do you like most?""" >> {
+    // Note: these test cases may give more hints on the rules of this layout. Don't read them if you
+    // want to figure them out on your own
+    Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree3.toString ===
+      "T[2,1]('a T[1,2]('b . T[2,3]('c . .)) T[3,2]('d . .))"
+
+    Node(0).layoutBinaryTree3.toString === "T[1,1](0 . .)"
+    Node(0, Node(1), End).layoutBinaryTree3.toString === "T[2,1](0 T[1,2](1 . .) .)"
+    Node(0, End, Node(1)).layoutBinaryTree3.toString === "T[1,1](0 . T[2,2](1 . .))"
+    Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree3.toString ===
+      "T[3,1](a T[1,2](b . T[2,3](c . .)) T[5,2](d . .))"
+    Node(0, Node(1, Node(2, Node(3), End), End), End).layoutBinaryTree3.toString ===
+      "T[4,1](0 T[3,2](1 T[2,3](2 T[1,4](3 . .) .) .) .)"
+    Node(0, Node(1, Node(2, Node(3), Node(4, Node(5), Node(6))), End), End).layoutBinaryTree3.toString ===
+      "T[4,1](0 T[3,2](1 T[2,3](2 T[1,4](3 . .) T[3,4](4 T[2,5](5 . .) T[4,5](6 . .))) .) .)"
+    Node('a', Node('b', End, Node('c', End, Node('d'))), Node('e', Node('f'), End)).layoutBinaryTree3.toString ===
+      "T[3,1](a T[1,2](b . T[2,3](c . T[3,4](d . .))) T[5,2](e T[4,3](f . .) .))"
+  }
 
   """P67 A string representation of binary trees
 
