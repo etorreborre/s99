@@ -332,14 +332,11 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
 
     // Note: these test cases may give more hints on the rules of this layout. Don't read them if you
     // want to figure them out on your own
-    Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree3.toString ===
-      "T[2,1]('a T[1,2]('b . T[2,3]('c . .)) T[3,2]('d . .))"
-
     Node(0).layoutBinaryTree3.toString === "T[1,1](0 . .)"
     Node(0, Node(1), End).layoutBinaryTree3.toString === "T[2,1](0 T[1,2](1 . .) .)"
     Node(0, End, Node(1)).layoutBinaryTree3.toString === "T[1,1](0 . T[2,2](1 . .))"
     Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree3.toString ===
-      "T[3,1](a T[1,2](b . T[2,3](c . .)) T[5,2](d . .))"
+      "T[2,1](a T[1,2](b . T[2,3](c . .)) T[3,2](d . .))"
     Node(0, Node(1, Node(2, Node(3), End), End), End).layoutBinaryTree3.toString ===
       "T[4,1](0 T[3,2](1 T[2,3](2 T[1,4](3 . .) .) .) .)"
     Node(0, Node(1, Node(2, Node(3), Node(4, Node(5), Node(6))), End), End).layoutBinaryTree3.toString ===
