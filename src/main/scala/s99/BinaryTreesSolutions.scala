@@ -17,6 +17,7 @@ trait BinaryTreesSolutions {
     def layoutBinaryTree2: Tree[T] = ???
     def layoutBinaryTree3: Tree[T] = ???
 
+    def show: String = ???
     def preOrder: List[T] = ???
     def inOrder: List[T] = ???
     def toDotString: String = ???
@@ -24,8 +25,6 @@ trait BinaryTreesSolutions {
 
   case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {
     override def toString = "T(" + value.toString + " " + left.toString + " " + right.toString + ")"
-
-    def show: String = ???
   }
 
   case object End extends Tree[Nothing] {
@@ -48,12 +47,9 @@ trait BinaryTreesSolutions {
     def hbalTreesWithNodes[T](n: Int, e: T): List[Tree[T]] = ???
     def completeBinaryTree[T](n: Int, e: T): Tree[T] = ???
 
-    def fromString(string: String): Node[Char] = ???
-    def fromDotString(string: String): Node[Char] = ???
-
-    def string2Tree(string: String): Tree[Char] = ???
-
-    def preInTree(lists: List[Char]*): Node[Char] = ???
+    def fromString(string: String): Tree[Char] = ???
+    def preInTree[T](pre: List[T], in: List[T]): Tree[T] = ???
+    def fromDotString(string: String): Tree[Char] = ???
   }
 
   class PositionedNode[+T](override val value: T,

@@ -354,11 +354,20 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   Use that method for the Tree class's and subclass's toString methods. Then write a method (on the Tree object) which
   does this inverse; i.e. given the string representation, construct the tree in the usual form.
 
-  For simplicity, suppose the information in the nodes is a single letter and there are no spaces in the string""" >>
-  { Node('a', Node('b', Node('d'), Node('e')), Node('c', End, Node('f', Node('g'), End))).show ===
+  For simplicity, suppose the information in the nodes is a single letter and there are no spaces in the string""" >> {
+    Node('a', Node('b', Node('d'), Node('e')), Node('c', End, Node('f', Node('g'), End))).show ===
       "a(b(d,e),c(,f(g,)))"
 
-      Tree.fromString("a(b(d,e),c(,f(g,)))").show === "a(b(d,e),c(,f(g,)))" }
+    Node('a').show === "a"
+    Node('a', Node('b'), End).show === "a(b,)"
+    Node('a', End, Node('b')).show === "a(,b)"
+
+    Tree.fromString("a") === Node('a')
+    Tree.fromString("a(b,)") === Node('a', Node('b'), End)
+    Tree.fromString("a(,b)") === Node('a', End, Node('b'))
+
+    Tree.fromString("a(b(d,e),c(,f(g,)))").show === "a(b(d,e),c(,f(g,)))"
+  }
 
   """P68 Preorder and inorder sequences of binary trees
 
@@ -370,11 +379,12 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
        is determined unambiguously. Write a method preInTree that does the job.
 
   What happens if the same character appears in more than one node? Try, for instance,
-  `Tree.preInTree(List('a', 'b', 'a'), List('b', 'a', 'a'))`""" >>
-  { Tree.string2Tree("a(b(d,e),c(,f(g,)))").preOrder === List('a', 'b', 'd', 'e', 'c', 'f', 'g')
-    Tree.string2Tree("a(b(d,e),c(,f(g,)))").inOrder === List('d', 'b', 'e', 'a', 'c', 'g', 'f')
+  `Tree.preInTree(List('a', 'b', 'a'), List('b', 'a', 'a'))`""" >> {
+    Tree.fromString("a(b(d,e),c(,f(g,)))").preOrder === List('a', 'b', 'd', 'e', 'c', 'f', 'g')
+    Tree.fromString("a(b(d,e),c(,f(g,)))").inOrder === List('d', 'b', 'e', 'a', 'c', 'g', 'f')
     Tree.preInTree(List('a', 'b', 'd', 'e', 'c', 'f', 'g'), List('d', 'b', 'e', 'a', 'c', 'g', 'f')).show ===
-     "a(b(d,e),c(,f(g,)))" }
+     "a(b(d,e),c(,f(g,)))"
+  }
 
   """P69 Dotstring representation of binary trees
 
@@ -382,8 +392,12 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   problem P67. Such a tree can be represented by the preorder sequence of its nodes in which dots (.) are inserted
   where an empty subtree (End) is encountered during the tree traversal. For example, the tree shown in problem P67
   is represented as "abd..e..c.fg...". First, try to establish a syntax (BNF or syntax diagrams) and then write two
-  methods, `toDotstring` and `fromDotstring`, which do the conversion in both directions""" >>
-  { Tree.string2Tree("a(b(d,e),c(,f(g,)))").toDotString === "abd..e..c.fg..."
-    Tree.fromDotString("abd..e..c.fg...").show === "a(b(d,e),c(,f(g,)))" }
-
+  methods, `toDotstring` and `fromDotstring`, which do the conversion in both directions""" >> {
+    Tree.fromDotString(".") === End
+    End.toDotString === "."
+    Tree.fromDotString("a..") === Node('a')
+    Node('a').toDotString === "a.."
+    Tree.fromString("a(b(d,e),c(,f(g,)))").toDotString === "abd..e..c.fg..."
+    Tree.fromDotString("abd..e..c.fg...").show === "a(b(d,e),c(,f(g,)))"
+  }
 }
