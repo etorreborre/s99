@@ -58,9 +58,17 @@ trait BinaryTreesSolutions {
 
   class PositionedNode[+T](override val value: T,
                            override val left: Tree[T],
-                           override val right: Tree[T], x: Int, y: Int) extends Node[T](value, left, right) {
+                           override val right: Tree[T],
+                           val x: Int,
+                           val y: Int) extends Node[T](value, left, right) {
     override def toString = "T[" + x.toString + "," + y.toString + "](" +
       value.toString + " " + left.toString + " " + right.toString + ")"
   }
 
+  object PositionedNode {
+    def apply[T](value: T, left: Tree[T], right: Tree[T], x: Int, y: Int) =
+      new PositionedNode[T](value, left, right, x, y)
+    def unapply[T](p: PositionedNode[T]) =
+      Some((p.value, p.left, p.right, p.x, p.y))
+  }
 }

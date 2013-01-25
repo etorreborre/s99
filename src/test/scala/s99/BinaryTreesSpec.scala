@@ -218,6 +218,33 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
 
   The tree at right may be constructed with `Tree.fromList(List('n','k','m','c','a','h','g','e','u','p','s','q'))`.
   Use it to check your code""" >> {
+    Tree.fromList(List('n','k','m','c','a','h','g','e','u','p','s','q')).layoutBinaryTree ===
+      PositionedNode('n',
+        PositionedNode('k',
+          PositionedNode('c',
+            PositionedNode('a', End, End, 1, 4),
+            PositionedNode('h',
+              PositionedNode('g',
+                PositionedNode('e', End, End, 3, 6),
+                End,
+                4, 5),
+              End,
+              5, 4),
+            2, 3),
+          PositionedNode('m', End, End, 7, 3),
+          6, 2),
+        PositionedNode('u',
+          PositionedNode('p',
+            End,
+            PositionedNode('s',
+              PositionedNode('q', End, End, 10, 5),
+              End,
+              11, 4),
+            9, 3),
+          End,
+          12, 2),
+        8, 1)
+
     Node(0).layoutBinaryTree.toString === "T[1,1](0 . .)"
     Node(0, Node(1), End).layoutBinaryTree.toString === "T[2,1](0 T[1,2](1 . .) .)"
     Node(0, End, Node(1)).layoutBinaryTree.toString === "T[1,1](0 . T[2,2](1 . .))"
@@ -237,6 +264,27 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
 
   The tree at right may be constructed with `Tree.fromList(List('n','k','m','c','a','e','d','g','u','p','q'))`.
   Use it to check your code""" >> {
+    Tree.fromList(List('n','k','m','c','a','e','d','g','u','p','q')).layoutBinaryTree2 ===
+      PositionedNode('n',
+        PositionedNode('k',
+          PositionedNode('c',
+            PositionedNode('a', End, End, 1, 4),
+            PositionedNode('e',
+              PositionedNode('d', End, End, 4, 5),
+              PositionedNode('g', End, End, 6, 5),
+              5, 4),
+            3, 3),
+          PositionedNode('m', End, End, 11, 3),
+          7, 2),
+        PositionedNode('u',
+          PositionedNode('p',
+            End,
+            PositionedNode('q', End, End, 21, 4),
+            19, 3),
+          End,
+          23, 2),
+        15, 1)
+
     // Note: these test cases may give more hints on the rules of this layout. Don't read them if you
     // want to figure them out on your own
     Node(0).layoutBinaryTree2.toString === "T[1,1](0 . .)"
@@ -261,6 +309,27 @@ class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   Note: This is a difficult problem. Don't give up too early!
 
   Which layout do you like most?""" >> {
+    Tree.fromList(List('n','k','m','c','a','e','d','g','u','p','q')).layoutBinaryTree3 ===
+      PositionedNode('n',
+        PositionedNode('k',
+          PositionedNode('c',
+            PositionedNode('a', End, End, 1, 4),
+            PositionedNode('e',
+              PositionedNode('d', End, End, 2, 5),
+              PositionedNode('g', End, End, 4, 5),
+              3, 4),
+            3, 3),
+          PositionedNode('m', End, End, 4, 3),
+          3, 2),
+        PositionedNode('u',
+          PositionedNode('p',
+            End,
+            PositionedNode('q', End, End, 7, 4),
+            6, 3),
+          End,
+          7, 2),
+        5, 1)
+
     // Note: these test cases may give more hints on the rules of this layout. Don't read them if you
     // want to figure them out on your own
     Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree3.toString ===
