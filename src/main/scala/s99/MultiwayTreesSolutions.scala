@@ -11,7 +11,7 @@ trait MultiwayTreesSolutions {
     def nodeCount: Int = ???
     def show: String = ???
     def internalPathLength: Int = ???
-    def postOrder: List[Char] = ???
+    def postOrder: List[T] = ???
 
     def lispyTree: String = ???
   }
