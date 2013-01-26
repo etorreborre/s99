@@ -1,17 +1,6 @@
-This project is the implementation of the [99 Scala problems](http://aperiodic.net/phil/scala/s-99/) as a set of [specs2](http://specs2.org) specifications, ready to implement and execute with [sbt](https://github.com/harrah/xsbt/).
+S-99: Ninety-Nine Scala Problems
+====
 
-Each Specification is divided into:
+My implementation of the [99 Scala problems](http://aperiodic.net/phil/scala/s-99/), accompanied by [specs2](http://specs2.org) specifications (using [these](https://github.com/etorreborre/s99) as a start) and ready to run with [sbt](https://github.com/harrah/xsbt/).
 
- - the description of the problem to solve (see [`ListsSpec`](https://github.com/etorreborre/s99/blob/master/src/test/scala/s99/ListsSpec.scala) for an example)
- - the methods to implement (see [`ListsSolutions`](https://github.com/etorreborre/s99/blob/master/src/main/scala/s99/ListsSolutions.scala) for an example)
-
-To run the specifications, install sbt (version > 0.11.2) and execute:
-
-sbt>test
-
-To see only the failed ones:
-
-sbt>test-only -- xonly
-
-*WARNING* The specifications have not yet been all tested against a valid implementation, please report any bug!
-
+The coverage of the specs is continuously being increased as I am solving the problems, in order for me to test all relevant corner cases (at least the ones I can remember). People who want to solve these problems and want a fresh code base with tests can fork the branch `specs-only`.
