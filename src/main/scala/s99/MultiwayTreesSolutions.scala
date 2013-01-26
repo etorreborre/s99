@@ -11,9 +11,13 @@ trait MultiwayTreesSolutions {
     def nodeCount: Int = ???
     def show: String = ???
     def internalPathLength: Int = ???
-    def postorder: List[Char] = ???
+    def postOrder: List[Char] = ???
 
     def lispyTree: String = ???
+  }
+
+  object MTree {
+    def fromLispyTree(string: String): MTree[Char] = ???
   }
 
   implicit def string2MTree(s: String): MTree[Char] = ???
