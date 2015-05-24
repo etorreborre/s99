@@ -6,7 +6,7 @@ trait BinaryTreesSolutions {
 
   sealed abstract class Tree[+T] {
     def isSymmetric: Boolean = ???
-    def addValue[S >: T <% Ordered[S]](s: S): Tree[S] = ???
+    def addValue[S >: T: Ordering](s: S): Tree[S] = ???
 
     def leafCount: Int = ???
     def leafList: List[T] = ???
@@ -24,7 +24,7 @@ trait BinaryTreesSolutions {
   }
 
   case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {
-    override def toString = "T(" + value.toString + " " + left.toString + " " + right.toString + ")"
+    override def toString = s"T($value $left $right)"
   }
 
   case object End extends Tree[Nothing] {
@@ -36,9 +36,8 @@ trait BinaryTreesSolutions {
   }
 
   object Tree {
-
     def cBalanced[T](n: Int, e: T): List[Tree[T]] = ???
-    def fromList[T <% Ordered[T]](list: List[T]): Tree[T] = ???
+    def fromList[T: Ordering](list: List[T]): Tree[T] = ???
     def symmetricBalancedTrees[T](n: Int, e: T): List[Tree[T]] = ???
     def hbalTrees[T](h: Int, e: T): List[Tree[T]] = ???
 
@@ -57,8 +56,7 @@ trait BinaryTreesSolutions {
                            override val right: Tree[T],
                            val x: Int,
                            val y: Int) extends Node[T](value, left, right) {
-    override def toString = "T[" + x.toString + "," + y.toString + "](" +
-      value.toString + " " + left.toString + " " + right.toString + ")"
+    override def toString = s"T[$x, $y]($value $left $right)"
   }
 
   object PositionedNode {

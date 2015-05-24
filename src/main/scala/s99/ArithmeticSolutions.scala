@@ -1,14 +1,11 @@
 package s99
 
-import Solutions.???
+import Solutions._
 
 trait ArithmeticSolutions {
 
   // add new functions to integers
-  implicit def extendInt(n: Int): ExtendedInt = ExtendedInt(n)
-
-  case class ExtendedInt(n: Int) {
-
+  implicit class ExtendedInt(n: Int) {
     def isPrime: Boolean = ???
     def isCoprimeTo(n: Int): Boolean = ???
     def totient: Int = ???
@@ -18,7 +15,6 @@ trait ArithmeticSolutions {
     def improvedTotient: Int = ???
     def listPrimesinRange(r: Range): List[Int] = ???
     def goldbach: (Int, Int) = ???
-
   }
 
   def gcd(m: Int, n: Int): Int = ???
@@ -28,5 +24,4 @@ trait ArithmeticSolutions {
 
   // Optional but possibly useful exercise: not in original s-99 problems
   def primes: Stream[Int] = ???
-
 }

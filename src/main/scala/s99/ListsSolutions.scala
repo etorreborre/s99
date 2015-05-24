@@ -3,7 +3,6 @@ package s99
 import Solutions._
 
 trait ListsSolutions {
-
   def last[T](list: List[T]): T = ???
   def penultimate[T](list: List[T]): T = ???
   def nth[T](n: Int, list: List[T]): T = ???
@@ -34,6 +33,4 @@ trait ListsSolutions {
   def groups[T](ns: List[Int], list: List[T]): List[List[List[T]]] = ???
   def lsort[T](list: List[List[T]]): List[List[T]] = ???
   def lsortFreq[T](list: List[List[T]]): List[List[T]] = ???
-
 }
-

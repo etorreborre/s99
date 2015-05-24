@@ -4,7 +4,8 @@ import org.specs2.mutable.Specification
 
 class GraphsSpec extends Specification with GraphsSolutions {
 
-  """ A graph is defined as a set of nodes and a set of edges, where each edge is a pair of nodes.
+  /*
+  A graph is defined as a set of nodes and a set of edges, where each edge is a pair of nodes.
 
   The class to represent a graph is mutable, which isn't in keeping with pure functional programming, but a pure
   functional data structure would make things much, much more complicated. [Pure functional graphs with cycles require
@@ -76,7 +77,7 @@ class GraphsSpec extends Specification with GraphsSolutions {
 
   The notation for labeled graphs can also be used for so-called multi-graphs, where more than one edge (or arc) is
   allowed between two given nodes
-  """
+  */
 
   """ Conversions
 
