@@ -1,5 +1,6 @@
 package s99
 
+import org.specs2.matcher.Matcher
 import org.specs2.mutable._
 
 class ListsSpec extends Specification with ListsSolutions {
@@ -214,7 +215,7 @@ class ListsSpec extends Specification with ListsSolutions {
   C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficient). For pure mathematicians, this
   result may be great. But we want to really generate all the possibilities""" >> {
     combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)).map(_.toSet) must
-      contain(Set('a, 'b, 'c), Set('a, 'b, 'd), Set('a, 'b, 'e))
+      containElements(Set('a, 'b, 'c), Set('a, 'b, 'd), Set('a, 'b, 'e))
 
     combinations(0, List(1, 2, 3)) === List(Nil)
     combinations(1, List(1, 2, 3)).map(_.toSet).toSet === Set(Set(1), Set(2), Set(3))
@@ -288,4 +289,6 @@ class ListsSpec extends Specification with ListsSolutions {
     lsortFreq(List(Nil, List(1), List(1, 1), Nil, List(1), List(1, 1, 1), Nil, List(1, 1), List(1), Nil)) ===
       List(List(1, 1, 1), List(1, 1), List(1, 1), List(1), List(1), List(1), Nil, Nil, Nil, Nil)
   }
+
+  def containElements[A](elems: A*): Matcher[Traversable[A]] = { (_: Traversable[A]) must contain(allOf(elems: _*)) }
 }
