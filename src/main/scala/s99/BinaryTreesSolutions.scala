@@ -56,7 +56,7 @@ trait BinaryTreesSolutions {
                            override val right: Tree[T],
                            val x: Int,
                            val y: Int) extends Node[T](value, left, right) {
-    override def toString = s"T[$x, $y]($value $left $right)"
+    override def toString = s"T[$x,$y]($value $left $right)"
   }
 
   object PositionedNode {
