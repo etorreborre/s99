@@ -14,7 +14,7 @@ libraryDependencies ++= Seq(
   "org.scala-tools.testing" %% "scalacheck" % "1.9", 
   "org.scala-tools.testing" % "test-interface" % "0.5", 
   "org.specs2" %% "specs2-scalaz-core" % "6.0.1",
-  "org.specs2" %% "specs2" % "1.9-SNAPSHOT",
+  "org.specs2" %% "specs2" % "1.9",
   "org.pegdown" % "pegdown" % "1.0.2"
 )
 
