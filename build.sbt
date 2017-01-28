@@ -1,11 +1,9 @@
 name := "s99"
-
+organization := "net.ruippeixotog"
 version := "0.1-SNAPSHOT"
 
-organization := "net.ruippeixotog"
+scalaVersion := "2.12.1"
 
-scalaVersion := "2.11.6"
-
-libraryDependencies += "org.specs2" %% "specs2-core" % "3.6"
+libraryDependencies += "org.specs2" %% "specs2-core" % "3.8.7" % "test"
 
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-language:implicitConversions")
