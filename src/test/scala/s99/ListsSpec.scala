@@ -3,7 +3,7 @@ package s99
 import org.specs2.matcher.Matcher
 import org.specs2.mutable._
 
-class ListsSpec extends Specification with ListsSolutions {
+class ListsSpec extends S99Specification with ListsSolutions {
 
   "P01 Find the last element of a list" >> {
     last(List(1, 1, 2, 3, 5, 8)) === 8

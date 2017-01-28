@@ -1,7 +1,5 @@
 package s99
 
-import Solutions._
-
 trait LogicAndCodesSolutions { outer =>
 
   implicit class ExtendedBoolean(a: Boolean) {

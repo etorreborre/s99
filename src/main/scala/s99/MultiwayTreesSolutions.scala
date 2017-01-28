@@ -1,7 +1,5 @@
 package s99
 
-import Solutions._
-
 trait MultiwayTreesSolutions {
 
   case class MTree[+T](value: T, children: List[MTree[T]] = Nil) {

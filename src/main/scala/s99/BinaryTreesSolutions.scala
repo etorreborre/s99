@@ -1,7 +1,5 @@
 package s99
 
-import Solutions.???
-
 trait BinaryTreesSolutions {
 
   sealed abstract class Tree[+T] {

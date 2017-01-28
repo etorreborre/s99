@@ -1,7 +1,5 @@
 package s99
 
-import Solutions._
-
 trait ListsSolutions {
   def last[T](list: List[T]): T = ???
   def penultimate[T](list: List[T]): T = ???

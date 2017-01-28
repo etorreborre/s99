@@ -1,9 +1,8 @@
 package s99
 
-import org.specs2.mutable.Specification
 import org.specs2.matcher._
 
-class ArithmeticSpec extends Specification with ArithmeticSolutions {
+class ArithmeticSpec extends S99Specification with ArithmeticSolutions {
 
   "P31 Determine whether a given integer number is prime" >> {
     foreach(Seq(2, 3, 7, 13, 19)) { _ must bePrime }

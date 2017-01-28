@@ -1,8 +1,6 @@
 package s99
 
-import org.specs2.mutable.Specification
-
-class GraphsSpec extends Specification with GraphsSolutions {
+class GraphsSpec extends S99Specification with GraphsSolutions {
 
   /*
   A graph is defined as a set of nodes and a set of edges, where each edge is a pair of nodes.

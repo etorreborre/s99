@@ -1,8 +1,7 @@
 package s99
 
-import org.specs2.mutable.Specification
+class BinaryTreesSpec extends S99Specification with BinaryTreesSolutions {
 
-class BinaryTreesSpec extends Specification with BinaryTreesSolutions {
   /*
   A binary tree is either empty or it is composed of a root element and two successors, which are binary trees
   themselves.

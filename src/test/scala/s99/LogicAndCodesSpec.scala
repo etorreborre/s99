@@ -1,10 +1,10 @@
 package s99
 
-import org.specs2.mutable.Specification
 import org.specs2.matcher._
 import org.specs2.execute.Result
 
-class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with DataTables {
+class LogicAndCodesSpec extends S99Specification with LogicAndCodesSolutions with DataTables {
+
   """P46 Truth tables for logical expressions
 
   Define functions and, or, nand, nor, xor, impl, and equ for logical equivalence) which return true or false
@@ -113,4 +113,3 @@ class LogicAndCodesSpec extends Specification with LogicAndCodesSolutions with D
   // this specs2 implicit method is deactivated to allow the local definition of Boolean operators
   override def toResult(b: Boolean): Result = super.toResult(b)
 }
-
